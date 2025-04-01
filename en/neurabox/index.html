@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuraBox Project | Stepan's Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="stylesheet" href="/en/style.css"> <link rel="stylesheet" href="project-style.css"> </head>
+<body>
+
+<header class="site-header project-header">
+  <div class="container">
+    <a href="/en/" class="back-link">
+      <i class="ph ph-arrow-left"></i> Back to Portfolio
+    </a>
+  </div>
+</header>
+
+<main class="container project-page-container">
+
+  <div class="project-logo-container">
+    <div class="project-logo-masked"></div>
+  </div>
+
+  <h1>NeuraBox</h1>
+
+  <section class="project-page-section description-section">
+    <h2>Description</h2>
+    <p>NeuraBox is a powerful and flexible AI assistant application designed to work with various neural networks, providing a seamless user experience for text, image, and video generation. The application features an intuitive interface, real-time model switching, and local processing capabilities without relying on external servers.</p>
+    <p>NeuraBox is designed for AI enthusiasts, researchers, and developers looking for a private and efficient way to interact with local AI models.</p>
+  </section>
+
+  <section class="project-page-section features-section">
+    <h2>Key Features</h2>
+    <ul class="feature-list">
+      <li><i class="ph ph-tabs"></i> Chat System with Tabs: Allows managing multiple conversations with different models.</li>
+      <li><i class="ph ph-stack-overflow-logo"></i> Multi-Model Support: Choose from a wide range of AI models available on Hugging Face.</li>
+      <li><i class="ph ph-desktop-tower"></i> Local Processing: Run AI models directly on your machine without cloud dependencies.</li>
+      <li><i class="ph ph-moon"></i> Dark Mode Interface: Modern and sleek design with a focus on usability.</li>
+      <li><i class="ph ph-chat-dots"></i> Real-Time Chat: Engage with AI in a chat-like interface.</li>
+      <li><i class="ph ph-check-square-offset"></i> Task Synchronization: Manage tasks and keep track of previous interactions.</li>
+      <li><i class="ph ph-sliders-horizontal"></i> Advanced Customization: Fine-tune model behavior and preferences.</li>
+    </ul>
+  </section>
+
+  <section class="project-page-section planned-features-section">
+    <h2>Planned Features</h2>
+    <ul class="feature-list">
+      <li><i class="ph ph-robot"></i> Support for Various AI Models: Integration of models specialized in text, image, and video generation.</li>
+      <li><i class="ph ph-text-aa"></i> Text Streaming: Smooth real-time text generation for a better user experience.</li>
+      <li><i class="ph ph-wifi-high"></i> Internet Access for AI Models: Planned feature to enable models to retrieve real-time data to enhance response accuracy.</li>
+    </ul>
+  </section>
+
+  <section class="project-page-section technologies-section">
+    <h2>Technologies</h2>
+    <p>The following technology stack was used in the development of NeuraBox:</p>
+    <ul class="tech-list">
+      <li>
+        <i class="ph ph-code"></i> <strong>Backend & AI Core (Python):</strong>
+        <ul>
+          <li>Python 3.x</li>
+          <li>PyTorch</li>
+          <li>Hugging Face Ecosystem (Transformers, Tokenizers, Hub)</li>
+          <li>llama.cpp</li>
+          <li>FastAPI</li>
+          <li>NumPy / SciPy / Scikit-learn</li>
+          <li>FAISS</li>
+          <li>Pydantic</li>
+        </ul>
+      </li>
+      <li>
+        <i class="ph ph-monitor"></i> <strong>Frontend (JavaScript):</strong>
+        <ul>
+          <li>React</li>
+          <li>Tailwind CSS</li>
+          <li>React Markdown, React Icons</li>
+        </ul>
+      </li>
+      <li>
+        <i class="ph ph-wrench"></i> <strong>Tools & Other:</strong>
+        <ul>
+          <li>Git & GitHub</li>
+          <li>Asyncio</li>
+          <li>Uvicorn / aiohttp</li>
+          <li>Webpack / react-scripts</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="project-page-section links-section">
+    <h2>Links</h2>
+    <ul>
+      <li><i class="ph ph-github-logo"></i> <a href="https://github.com/firexrwt/NeuraBox" target="_blank" rel="noopener noreferrer">Repository on GitHub</a></li>
+      <li><i class="ph ph-download-simple"></i> Download / Demo: Release version coming soon!</li>
+    </ul>
+  </section>
+
+  <section class="project-page-section media-section">
+    <h2>Screenshots / Media</h2>
+    <p>Interface screenshots and demonstrations will be added later.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer project-footer">
+  <div class="container">
+    <p>&copy; <span id="current-year">2025</span> Stepan. <a href="/en/">Back to main page</a></p>
+  </div>
+</footer>
+
+<script>
+  const currentYearSpan = document.getElementById('current-year');
+  if (currentYearSpan) {
+    currentYearSpan.textContent = new Date().getFullYear();
+  }
+</script>
+
+</body>
+</html>
