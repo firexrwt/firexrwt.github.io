@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Степан | Энтузиаст Технологий и Разработчик | Вена</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <a href="#" class="logo">Stepan</a> <nav class="main-nav">
+        <ul>
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#projects">Проекты</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+        <div class="language-switcher">
+            <span>RU</span> | <a href="/en/">EN</a> | <a href="/de/">DE</a>
+        </div>
+        <button class="menu-toggle" aria-label="Открыть меню">
+            <i class="ph ph-list"></i>
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-content container">
+            <span class="hero-intro animate-fade-in">Привет, я Степан 👋</span>
+            <h1 class="hero-title animate-fade-in" style="animation-delay: 0.2s;">Энтузиаст Технологий и Разработчик</h1>
+            <p class="hero-subtitle animate-fade-in" style="animation-delay: 0.4s;">
+                Создаю <span id="typed-text"></span>
+                <span class="typed-cursor">|</span> </p>
+            <div class="hero-cta animate-fade-in" style="animation-delay: 0.6s;">
+                <a href="#projects" class="cta-button primary">Смотреть проекты <i class="ph-fill ph-arrow-right"></i></a>
+                <a href="#contact" class="cta-button secondary">Связаться</a>
+            </div>
+        </div>
+        <div class="hero-bg"></div> </section>
+
+    <section id="about" class="about-section content-section">
+        <div class="container grid-layout">
+            <div class="about-text animate-on-scroll fade-in-left">
+                <h2>Кто я такой?</h2>
+                <p>Здравствуйте! Меня зовут Степан, я разработчик, живущий в Вене. Меня вдохновляет возможность использовать технологии для решения реальных задач и создания чего-то нового и полезного.</p>
+                <p>Мой путь в мир кода начался с изучения фундаментальных основ программирования на Python в Яндекс.Лицее. Позже я получил ценный практический опыт в создании мобильных приложений, обучаясь в IT Школе Самсунг. Этот разносторонний опыт заложил прочную основу и научил меня подходить к задачам с разных сторон.</p>
+                <p>Мне нравится применять полученные знания на практике, что привело к созданию таких проектов, как <a href="/neurabox/">NeuraBox</a> (инструмент для работы с локальными ИИ), <a href="/firex-bot/">FIREX BOT</a> (многофункциональный open-source Discord бот) и <a href="/my-time/">My Time</a> (мобильное приложение для тайм-менеджмента).</p>
+                <p>Хотя мой основной опыт лежит в областях, связанных с Python и мобильной разработкой, я активно интересуюсь и осваиваю новые технологии, включая инструменты веб-разработки, которые помогают мне оживлять и представлять мои проекты (как, например, этот сайт!).</p>
+            </div>
+            <div class="skills-list animate-on-scroll fade-in-right">
+                <h3>Ключевые навыки и интересы:</h3>
+                <ul>
+                    <li><i class="ph-bold ph-file-py"></i> Python</li>
+                    <li><i class="ph-bold ph-android-logo"></i> Разработка под Android (Основы)</li>
+                    <li><i class="ph-bold ph-terminal-window"></i> Алгоритмы и структуры данных</li>
+                    <li><i class="ph-bold ph-robot"></i> Автоматизация (боты, скрипты)</li>
+                    <li><i class="ph-bold ph-brain"></i> Интерес к AI/ML</li>
+                    <li><i class="ph-bold ph-git-branch"></i> Git & GitHub</li>
+                    <li><i class="ph-bold ph-file-html"></i> HTML & CSS (Осваиваю)</li>
+                    <li><i class="ph-bold ph-file-js"></i> JavaScript (Основы)</li>
+                    <li><i class="ph-bold ph-lightbulb"></i> Решение проблем</li>
+                    <li><i class="ph-bold ph-rocket-launch"></i> Быстрое обучение</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section content-section">
+        <div class="container">
+            <h2 class="animate-on-scroll fade-in">Мои Работы</h2>
+            <div class="projects-grid">
+                <a href="/neurabox/" class="project-card animate-on-scroll fade-in-up" target="_blank" rel="noopener noreferrer">
+                    <div class="project-image-placeholder"> <i class="ph ph-brain"></i> </div>
+                    <div class="project-info">
+                        <h3>NeuraBox</h3>
+                        <p>Программа для запуска локальных нейросетей с широким функционалом.</p>
+                        <span class="project-link">Узнать больше <i class="ph-bold ph-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="/firex-bot/" class="project-card animate-on-scroll fade-in-up" style="animation-delay: 0.1s;" target="_blank" rel="noopener noreferrer">
+                    <div class="project-image-placeholder"> <i class="ph ph-discord-logo"></i> </div>
+                    <div class="project-info">
+                        <h3>FIREX BOT</h3>
+                        <p>Open-source Discord бот (уведомления, модерация, уровни, мини-игры).</p>
+                        <span class="project-link">Узнать больше <i class="ph-bold ph-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="/my-time/" class="project-card animate-on-scroll fade-in-up" style="animation-delay: 0.2s;" target="_blank" rel="noopener noreferrer">
+                    <div class="project-image-placeholder"> <i class="ph ph-timer"></i> </div>
+                    <div class="project-info">
+                        <h3>My Time</h3>
+                        <p>Приложение для тайм-менеджмента для индивидуальных предпринимателей.</p>
+                        <span class="project-link">Узнать больше <i class="ph-bold ph-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section content-section">
+        <div class="container animate-on-scroll fade-in">
+            <h2>Давайте работать вместе!</h2>
+            <p>Открыт для новых проектов и интересных предложений. Напишите мне!</p>
+            <div class="contact-links">
+                <a href="mailto:firexfirexov@gmail.com" class="contact-link-button">
+                    <i class="ph-bold ph-envelope-simple"></i> Email
+                </a>
+                <a href="https://github.com/firexrwt" target="_blank" rel="noopener noreferrer" class="contact-link-button">
+                    <i class="ph-bold ph-github-logo"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/stepaneremeev/" target="_blank" rel="noopener noreferrer" class="contact-link-button">
+                    <i class="ph-bold ph-linkedin-logo"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; <span id="current-year">2025</span> Степан. Сделано с <i class="ph-fill ph-heart" style="color: var(--primary-color);"></i> в Вене.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

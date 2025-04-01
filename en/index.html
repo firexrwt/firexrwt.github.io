@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stepan | Technology Enthusiast & Developer | Vienna</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/en/" class="logo">Stepan</a> <nav class="main-nav">
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+    <div class="language-switcher">
+      <a href="/">RU</a> | <span>EN</span> | <a href="/de/">DE</a>
+    </div>
+    <button class="menu-toggle" aria-label="Open menu">
+      <i class="ph ph-list"></i>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-content container">
+      <span class="hero-intro animate-fade-in">Hi, I'm Stepan 👋</span>
+      <h1 class="hero-title animate-fade-in" style="animation-delay: 0.2s;">Technology Enthusiast and Developer</h1>
+      <p class="hero-subtitle animate-fade-in" style="animation-delay: 0.4s;">
+        Creating <span id="typed-text"></span>
+        <span class="typed-cursor">|</span> </p>
+      <div class="hero-cta animate-fade-in" style="animation-delay: 0.6s;">
+        <a href="#projects" class="cta-button primary">View Projects <i class="ph-fill ph-arrow-right"></i></a>
+        <a href="#contact" class="cta-button secondary">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-bg"></div> </section>
+
+  <section id="about" class="about-section content-section">
+    <div class="container grid-layout">
+      <div class="about-text animate-on-scroll fade-in-left">
+        <h2>Who am I?</h2>
+        <p>Hello! My name is Stepan, I'm a developer living in Vienna. I'm inspired by the opportunity to use technology to solve real-world problems and create something new and useful.</p>
+        <p>My journey into the world of code began with learning the fundamental basics of Python programming at Yandex Lyceum. Later, I gained valuable practical experience in mobile app development while studying at the Samsung IT School. This diverse experience built a solid foundation and taught me to approach tasks from different perspectives.</p>
+        <p>I enjoy applying my knowledge in practice, which led to the creation of projects like <a href="/neurabox/">NeuraBox</a> (a tool for working with local AI), <a href="/firex-bot/">FIREX BOT</a> (a multifunctional open-source Discord bot), and <a href="/my-time/">My Time</a> (a mobile time-management application).</p>
+        <p>Although my primary experience lies in areas related to Python and mobile development, I am actively interested in and learning new technologies, including web development tools that help me bring my projects to life and present them (like this website!).</p>
+      </div>
+      <div class="skills-list animate-on-scroll fade-in-right">
+        <h3>Key Skills and Interests:</h3>
+        <ul>
+          <li><i class="ph-bold ph-file-py"></i> Python</li>
+          <li><i class="ph-bold ph-android-logo"></i> Android Development (Basics)</li>
+          <li><i class="ph-bold ph-terminal-window"></i> Algorithms & Data Structures</li>
+          <li><i class="ph-bold ph-robot"></i> Automation (Bots, Scripts)</li>
+          <li><i class="ph-bold ph-brain"></i> Interest in AI/ML</li>
+          <li><i class="ph-bold ph-git-branch"></i> Git & GitHub</li>
+          <li><i class="ph-bold ph-file-html"></i> HTML & CSS (Learning)</li>
+          <li><i class="ph-bold ph-file-js"></i> JavaScript (Basics)</li>
+          <li><i class="ph-bold ph-lightbulb"></i> Problem Solving</li>
+          <li><i class="ph-bold ph-rocket-launch"></i> Fast Learner</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects-section content-section">
+    <div class="container">
+      <h2 class="animate-on-scroll fade-in">My Works</h2>
+      <div class="projects-grid">
+        <a href="/neurabox/" class="project-card animate-on-scroll fade-in-up" target="_blank" rel="noopener noreferrer">
+          <div class="project-image-placeholder"> <i class="ph ph-brain"></i> </div>
+          <div class="project-info">
+            <h3>NeuraBox</h3>
+            <p>A program for running local neural networks with extensive functionality.</p>
+            <span class="project-link">Learn more <i class="ph-bold ph-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="/firex-bot/" class="project-card animate-on-scroll fade-in-up" style="animation-delay: 0.1s;" target="_blank" rel="noopener noreferrer">
+          <div class="project-image-placeholder"> <i class="ph ph-discord-logo"></i> </div>
+          <div class="project-info">
+            <h3>FIREX BOT</h3>
+            <p>Open-source Discord bot (notifications, moderation, levels, mini-games).</p>
+            <span class="project-link">Learn more <i class="ph-bold ph-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="/my-time/" class="project-card animate-on-scroll fade-in-up" style="animation-delay: 0.2s;" target="_blank" rel="noopener noreferrer">
+          <div class="project-image-placeholder"> <i class="ph ph-timer"></i> </div>
+          <div class="project-info">
+            <h3>My Time</h3>
+            <p>A time-management application for individual entrepreneurs.</p>
+            <span class="project-link">Learn more <i class="ph-bold ph-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section content-section">
+    <div class="container animate-on-scroll fade-in">
+      <h2>Let's work together!</h2>
+      <p>Open to new projects and interesting opportunities. Write to me!</p>
+      <div class="contact-links">
+        <a href="mailto:firexfirexov@gmail.com" class="contact-link-button">
+          <i class="ph-bold ph-envelope-simple"></i> Email
+        </a>
+        <a href="https://github.com/firexrwt" target="_blank" rel="noopener noreferrer" class="contact-link-button">
+          <i class="ph-bold ph-github-logo"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/stepaneremeev/" target="_blank" rel="noopener noreferrer" class="contact-link-button">
+          <i class="ph-bold ph-linkedin-logo"></i> LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="current-year">2025</span> Stepan. Made with <i class="ph-fill ph-heart" style="color: var(--primary-color);"></i> in Vienna.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
