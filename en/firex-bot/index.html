@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIREX BOT Project | Stepan's Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="stylesheet" href="/en/style.css">
+  <link rel="stylesheet" href="project-style.css">
+
+</head>
+<body>
+
+<header class="site-header project-header">
+  <div class="container">
+    <a href="/en/" class="back-link">
+      <i class="ph ph-arrow-left"></i> Back to Portfolio
+    </a>
+  </div>
+</header>
+
+<main class="container project-page-container">
+
+  <h1 class="animate-on-scroll fade-in">FIREX BOT</h1>
+
+  <section class="project-page-section description-section animate-on-scroll fade-in-up">
+    <h2>Description</h2>
+    <p>FIREX BOT is a multifunctional open-source Discord bot designed to simplify server management and add interactive elements for the community. Initially created for my personal server, the bot is now being prepared for global deployment.</p>
+    <p>The bot provides a suite of tools, including Twitch stream start notifications, moderation commands, an activity-based user level system, and entertaining mini-games.</p>
+    <p>The project is open-source, allowing other users to easily deploy it locally and adapt it to their needs.</p>
+  </section>
+
+  <section class="project-page-section features-section animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
+    <h2>Key Features</h2>
+    <ul class="feature-list">
+      <li><i class="ph ph-twitch-logo"></i> Twitch Notifications: Notifies the server when specified streamers go live.</li>
+      <li><i class="ph ph-shield-checkered"></i> Moderation: A set of commands to maintain order on the server (e.g., kick, ban, mute - *specify commands if needed*).</li>
+      <li><i class="ph ph-medal"></i> Level System: Users gain experience and levels for sending messages, encouraging activity.</li>
+      <li><i class="ph ph-game-controller"></i> Mini-Games: Built-in simple games to entertain server members (*specify games if needed*).</li>
+      <li><i class="ph ph-git-branch"></i> Open Source: Allows anyone to study the code, contribute, or deploy their own version of the bot.</li>
+      <li><i class="ph ph-gear"></i> Local Deployment: Designed for easy execution on the user's own hardware.</li>
+    </ul>
+  </section>
+
+  <section class="project-page-section technologies-section animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+    <h2>Technologies</h2>
+    <p>The main technologies used in FIREX BOT:</p>
+    <ul class="tech-list">
+      <li>
+        <i class="ph ph-code"></i> <strong>Core Language & Libraries:</strong>
+        <ul>
+          <li>Python 3.x</li>
+          <li>Nextcord (Asynchronous library for the Discord API)</li>
+          <li>Requests (For interacting with external APIs, e.g., Twitch)</li>
+          <li>Pillow & Colorthief (Image processing and color extraction)</li>
+          <li>Waitress (WSGI server - possibly for webhooks or a simple API?)</li>
+          <li>Humanfriendly (Formatting utilities)</li>
+        </ul>
+      </li>
+      <li>
+        <i class="ph ph-wrench"></i> <strong>Tools:</strong>
+        <ul>
+          <li>Git & GitHub</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="project-page-section links-section animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
+    <h2>Links</h2>
+    <ul>
+      <li><i class="ph ph-github-logo"></i> <a href="https://github.com/firexrwt/FIREX-BOT" target="_blank" rel="noopener noreferrer">Repository on GitHub</a></li>
+      <li><i class="ph ph-link"></i> Global Version / Invite: Coming soon!</li>
+    </ul>
+  </section>
+
+  <section class="project-page-section media-section animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+    <h2>Screenshots / Examples</h2>
+    <p>Examples of commands, notifications, and mini-game interactions will be added later.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer project-footer">
+  <div class="container">
+    <p>&copy; <span id="current-year">2025</span> Stepan. <a href="/en/">Back to main page</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

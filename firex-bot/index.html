@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проект FIREX BOT | Портфолио Степана</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="project-style.css">
+
+</head>
+<body>
+
+<header class="site-header project-header">
+  <div class="container">
+    <a href="/" class="back-link">
+      <i class="ph ph-arrow-left"></i> Назад к портфолио
+    </a>
+  </div>
+</header>
+
+<main class="container project-page-container">
+
+  <h1 class="animate-on-scroll fade-in">FIREX BOT</h1>
+
+  <section class="project-page-section description-section animate-on-scroll fade-in-up">
+    <h2>Описание</h2>
+    <p>FIREX BOT — это многофункциональный Discord-бот с открытым исходным кодом, разработанный для упрощения управления сервером и добавления интерактивных элементов для сообщества. Изначально созданный для моего личного сервера, бот сейчас готовится к глобальному развертыванию.</p>
+    <p>Бот предоставляет набор инструментов, включая уведомления о начале стримов на Twitch, команды модерации, систему уровней на основе активности пользователей и развлекательные мини-игры.</p>
+    <p>Проект является open-source, что позволяет другим пользователям легко развернуть его локально и адаптировать под свои нужды.</p>
+  </section>
+
+  <section class="project-page-section features-section animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
+    <h2>Ключевые Функции</h2>
+    <ul class="feature-list">
+      <li><i class="ph ph-twitch-logo"></i> Уведомления Twitch: Оповещает сервер о начале трансляций указанных стримеров.</li>
+      <li><i class="ph ph-shield-checkered"></i> Модерация: Набор команд для поддержания порядка на сервере (например, kick, ban, mute - *уточните команды при необходимости*).</li>
+      <li><i class="ph ph-medal"></i> Система Уровней: Пользователи получают опыт и уровни за отправку сообщений, стимулируя активность.</li>
+      <li><i class="ph ph-game-controller"></i> Мини-игры: Встроенные простые игры для развлечения участников сервера (*уточните игры при необходимости*).</li>
+      <li><i class="ph ph-git-branch"></i> Открытый Исходный Код: Возможность для любого желающего изучить код, внести свой вклад или развернуть свою версию бота.</li>
+      <li><i class="ph ph-gear"></i> Локальное Развертывание: Бот спроектирован для легкого запуска на собственном оборудовании пользователя.</li>
+    </ul>
+  </section>
+
+  <section class="project-page-section technologies-section animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+    <h2>Технологии</h2>
+    <p>Основные технологии, использованные в FIREX BOT:</p>
+    <ul class="tech-list">
+      <li>
+        <i class="ph ph-code"></i> <strong>Основной Язык и Библиотеки:</strong>
+        <ul>
+          <li>Python 3.x</li>
+          <li>Nextcord (Асинхронная библиотека для Discord API)</li>
+          <li>Requests (Для взаимодействия с внешними API, например, Twitch)</li>
+          <li>Pillow & Colorthief (Обработка изображений и извлечение цветов)</li>
+          <li>Waitress (WSGI сервер - возможно, для веб-хуков или простого API?)</li>
+          <li>Humanfriendly (Утилиты для форматирования)</li>
+        </ul>
+      </li>
+      <li>
+        <i class="ph ph-wrench"></i> <strong>Инструменты:</strong>
+        <ul>
+          <li>Git & GitHub</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="project-page-section links-section animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
+    <h2>Ссылки</h2>
+    <ul>
+      <li><i class="ph ph-github-logo"></i> <a href="https://github.com/firexrwt/FIREX-BOT" target="_blank" rel="noopener noreferrer">Репозиторий на GitHub</a></li>
+      <li><i class="ph ph-link"></i> Глобальная версия / Приглашение на сервер: Скоро!</li>
+    </ul>
+  </section>
+
+  <section class="project-page-section media-section animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+    <h2>Скриншоты / Примеры Работы</h2>
+    <p>Примеры команд, уведомлений и работы мини-игр будут добавлены позже.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer project-footer">
+  <div class="container">
+    <p>&copy; <span id="current-year">2025</span> Степан. <a href="/">Вернуться на главную</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
