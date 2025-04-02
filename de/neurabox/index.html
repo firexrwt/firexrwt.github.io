@@ -10,7 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-  <link rel="stylesheet" href="/de/style.css"> <link rel="stylesheet" href="project-style.css"> </head>
+  <link rel="stylesheet" href="/de/style.css">
+  <link rel="stylesheet" href="project-style.css">
+
+</head>
 <body>
 
 <header class="site-header project-header">
@@ -23,19 +26,19 @@
 
 <main class="container project-page-container">
 
-  <div class="project-logo-container">
+  <div class="project-logo-container animate-on-scroll fade-in">
     <div class="project-logo-masked"></div>
   </div>
 
-  <h1>NeuraBox</h1>
+  <h1 class="animate-on-scroll fade-in">NeuraBox</h1>
 
-  <section class="project-page-section description-section">
+  <section class="project-page-section description-section animate-on-scroll fade-in-up">
     <h2>Beschreibung</h2>
     <p>NeuraBox ist eine leistungsstarke und flexible KI-Assistentenanwendung, die für die Arbeit mit verschiedenen neuronalen Netzen konzipiert wurde und eine nahtlose Benutzererfahrung für die Generierung von Text, Bildern und Videos bietet. Die Anwendung verfügt über eine intuitive Benutzeroberfläche, Modellwechsel in Echtzeit und lokale Verarbeitungsmöglichkeiten ohne Abhängigkeit von externen Servern.</p>
     <p>NeuraBox richtet sich an KI-Enthusiasten, Forscher und Entwickler, die eine private und effiziente Möglichkeit zur Interaktion mit lokalen KI-Modellen suchen.</p>
   </section>
 
-  <section class="project-page-section features-section">
+  <section class="project-page-section features-section animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
     <h2>Hauptmerkmale</h2>
     <ul class="feature-list">
       <li><i class="ph ph-tabs"></i> Chat-System mit Tabs: Ermöglicht die Verwaltung mehrerer Gespräche mit verschiedenen Modellen.</li>
@@ -48,7 +51,7 @@
     </ul>
   </section>
 
-  <section class="project-page-section planned-features-section">
+  <section class="project-page-section planned-features-section animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
     <h2>Geplante Funktionen</h2>
     <ul class="feature-list">
       <li><i class="ph ph-robot"></i> Unterstützung verschiedener KI-Modelle: Integration von Modellen, die auf Text-, Bild- und Videogenerierung spezialisiert sind.</li>
@@ -57,44 +60,17 @@
     </ul>
   </section>
 
-  <section class="project-page-section technologies-section">
+  <section class="project-page-section technologies-section animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
     <h2>Technologien</h2>
     <p>Bei der Entwicklung von NeuraBox wurde folgender Technologie-Stack verwendet:</p>
     <ul class="tech-list">
-      <li>
-        <i class="ph ph-code"></i> <strong>Backend & KI-Kern (Python):</strong>
-        <ul>
-          <li>Python 3.x</li>
-          <li>PyTorch</li>
-          <li>Hugging Face Ecosystem (Transformers, Tokenizers, Hub)</li>
-          <li>llama.cpp</li>
-          <li>FastAPI</li>
-          <li>NumPy / SciPy / Scikit-learn</li>
-          <li>FAISS</li>
-          <li>Pydantic</li>
-        </ul>
-      </li>
-      <li>
-        <i class="ph ph-monitor"></i> <strong>Frontend (JavaScript):</strong>
-        <ul>
-          <li>React</li>
-          <li>Tailwind CSS</li>
-          <li>React Markdown, React Icons</li>
-        </ul>
-      </li>
-      <li>
-        <i class="ph ph-wrench"></i> <strong>Werkzeuge & Sonstiges:</strong>
-        <ul>
-          <li>Git & GitHub</li>
-          <li>Asyncio</li>
-          <li>Uvicorn / aiohttp</li>
-          <li>Webpack / react-scripts</li>
-        </ul>
-      </li>
+      <li><i class="ph ph-code"></i> <strong>Backend & KI-Kern (Python):</strong><ul><li>Python 3.x</li><li>PyTorch</li><li>Hugging Face Ecosystem (Transformers, Tokenizers, Hub)</li><li>llama.cpp</li><li>FastAPI</li><li>NumPy / SciPy / Scikit-learn</li><li>FAISS</li><li>Pydantic</li></ul></li>
+      <li><i class="ph ph-monitor"></i> <strong>Frontend (JavaScript):</strong><ul><li>React</li><li>Tailwind CSS</li><li>React Markdown, React Icons</li></ul></li>
+      <li><i class="ph ph-wrench"></i> <strong>Werkzeuge & Sonstiges:</strong><ul><li>Git & GitHub</li><li>Asyncio</li><li>Uvicorn / aiohttp</li><li>Webpack / react-scripts</li></ul></li>
     </ul>
   </section>
 
-  <section class="project-page-section links-section">
+  <section class="project-page-section links-section animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
     <h2>Links</h2>
     <ul>
       <li><i class="ph ph-github-logo"></i> <a href="https://github.com/firexrwt/NeuraBox" target="_blank" rel="noopener noreferrer">Repository auf GitHub</a></li>
@@ -102,7 +78,7 @@
     </ul>
   </section>
 
-  <section class="project-page-section media-section">
+  <section class="project-page-section media-section animate-on-scroll fade-in-up" style="animation-delay: 0.3s;">
     <h2>Screenshots / Medien</h2>
     <p>Screenshots der Benutzeroberfläche und Demonstrationen werden später hinzugefügt.</p>
   </section>
@@ -115,12 +91,5 @@
   </div>
 </footer>
 
-<script>
-  const currentYearSpan = document.getElementById('current-year');
-  if (currentYearSpan) {
-    currentYearSpan.textContent = new Date().getFullYear();
-  }
-</script>
-
-</body>
+<script src="script.js"></script> </body>
 </html>
