@@ -34,16 +34,17 @@
     margin-bottom: calc(var(--spacing-unit) * 1.5);
 }
 
+/* Стили для маски логотипа */
 .project-logo-masked {
     display: inline-block;
-    width: 150px; /* Настройте */
-    height: 150px; /* Настройте */
+    width: 150px;
+    height: 150px;
     background-color: var(--logo-color);
     transition: background-color var(--transition-speed) ease;
-    /* Пути к маске должны быть правильными для КАЖДОГО проекта, если лого разные */
-    /* Например, для NeuraBox: */
-    /* mask-image: url('images/neurabox-logo.svg'); */
-    /* -webkit-mask-image: url('images/neurabox-logo.svg'); */
+
+    mask-image: url('images/neurabox-logo.svg');
+    -webkit-mask-image: url('images/neurabox-logo.svg');
+
     mask-size: contain;
     -webkit-mask-size: contain;
     mask-repeat: no-repeat;
@@ -51,7 +52,6 @@
     mask-position: center;
     -webkit-mask-position: center;
 }
-/* Если для My Time логотипа нет, этот блок .project-logo-masked просто не будет использоваться */
 
 
 .project-page-container h1 {
