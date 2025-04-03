@@ -1,3 +1,18 @@
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in { transform: translateY(30px); }
+.fade-in-left { transform: translateX(-30px); }
+.fade-in-right { transform: translateX(30px); }
+.fade-in-up { transform: translateY(50px); }
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* --- Переменная для цвета логотипа (если используется маска) --- */
 :root {
     --logo-color: var(--text-color);
 }
@@ -7,15 +22,37 @@
     }
 }
 
+/* --- Общая компоновка страницы проекта --- */
 .project-page-container {
     padding-top: calc(var(--spacing-unit) * 2);
     padding-bottom: calc(var(--spacing-unit) * 2);
 }
 
+/* --- Логотип (если используется маска) --- */
 .project-logo-container {
     text-align: center;
     margin-bottom: calc(var(--spacing-unit) * 1.5);
 }
+
+.project-logo-masked {
+    display: inline-block;
+    width: 150px; /* Настройте */
+    height: 150px; /* Настройте */
+    background-color: var(--logo-color);
+    transition: background-color var(--transition-speed) ease;
+    /* Пути к маске должны быть правильными для КАЖДОГО проекта, если лого разные */
+    /* Например, для NeuraBox: */
+    /* mask-image: url('images/neurabox-logo.svg'); */
+    /* -webkit-mask-image: url('images/neurabox-logo.svg'); */
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+}
+/* Если для My Time логотипа нет, этот блок .project-logo-masked просто не будет использоваться */
+
 
 .project-page-container h1 {
     text-align: center;
@@ -24,6 +61,16 @@
     color: var(--primary-color);
 }
 
+.project-subtitle {
+    text-align: center;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-secondary);
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+
+/* --- Секции страницы проекта --- */
 .project-page-section {
     margin-bottom: calc(var(--spacing-unit) * 3);
     padding: calc(var(--spacing-unit) * 2);
@@ -61,8 +108,10 @@
     margin-right: calc(var(--spacing-unit) * 0.7);
     font-size: 1.1em;
     color: var(--secondary-color);
+    vertical-align: middle;
 }
 
+/* --- Списки Особенностей и Технологий --- */
 .feature-list {
     list-style: none;
     padding-left: 0;
@@ -84,7 +133,6 @@
     flex-shrink: 0;
     width: 1.8em;
     text-align: center;
-    vertical-align: middle;
     line-height: 1;
 }
 
@@ -126,16 +174,45 @@
     display: none;
 }
 
-.media-section img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: var(--spacing-unit);
-    border-radius: var(--border-radius-sm);
-    border: 1px solid var(--border-color);
+/* --- Галерея Скриншотов (Горизонтальный скролл) --- */
+.screenshot-gallery {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--spacing-unit);
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: var(--spacing-unit);
+    margin-top: calc(var(--spacing-unit) * 1.5);
+    align-items: center;
 }
 
-.project-header .container {
+.screenshot-gallery img {
+    display: block;
+    height: 200px; /* Или другая высота */
+    width: auto;
+    max-width: none;
+    cursor: pointer; /* Для лайтбокса */
 
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 2px 5px var(--shadow-color-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+/* Класс для JS лайтбокса */
+.screenshot-gallery img.gallery-image {
+    cursor: pointer;
+}
+
+
+.screenshot-gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px var(--shadow-color-heavy);
+}
+
+/* --- Шапка и Подвал на странице проекта --- */
+.project-header .container {
+    display: flex;
+    align-items: center;
 }
 
 .back-link {
@@ -169,31 +246,37 @@
     margin: 0;
 }
 
-.screenshot-gallery {
-    display: flex; /* Используем Flexbox для расположения в ряд */
-    flex-wrap: wrap; /* Разрешаем перенос на новую строку */
-    gap: var(--spacing-unit); /* Промежуток между скриншотами */
-    justify-content: center; /* Центрируем, если в ряду меньше макс. кол-ва */
-    margin-top: calc(var(--spacing-unit) * 1.5);
+/* --- Переключатель языков на странице проекта --- */
+.language-switcher {
+    font-size: 0.9rem;
+    margin-left: auto;
+    padding-left: calc(var(--spacing-unit) * 1.5);
+    flex-shrink: 0;
+    display: flex;
+    gap: calc(var(--spacing-unit) * 0.3);
+    align-items: center;
 }
 
-.screenshot-gallery img {
-    display: block;
-    max-width: 100%; /* Макс. ширина = ширина родителя */
-    height: auto; /* Сохраняем пропорции */
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-sm);
-    box-shadow: 0 2px 5px var(--shadow-color-light);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-    /* Задаем базовую ширину, чтобы помещалось ~3 в ряд на больших экранах */
-    /* 100% / 3 = 33.3%. Вычитаем промежутки (gap) */
-    flex-basis: calc(33.333% - var(--spacing-unit) * 2 / 3);
-    flex-grow: 1; /* Разрешаем расти, если есть место */
-    min-width: 250px; /* Мин. ширина перед переносом */
+.language-switcher button.lang-button {
+    background: none;
+    border: none;
+    padding: 0 5px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--secondary-color);
+    transition: color var(--transition-speed) ease;
 }
-
-.screenshot-gallery img:hover {
-    transform: scale(1.03); /* Небольшое увеличение при наведении */
-    box-shadow: 0 4px 10px var(--shadow-color-heavy);
+.language-switcher button.lang-button:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+.language-switcher button.lang-button:disabled {
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: default;
+}
+.language-switcher span {
+    display: none;
 }

@@ -348,104 +348,102 @@ i.ph-bold { margin-right: calc(var(--spacing-unit) * 0.5);}
     .main-nav {
         display: none;
         position: absolute;
-        top: 100%; /* Располагаем под шапкой */
+        top: 100%;
         left: 0;
         right: 0;
-        background-color: var(--bg-color); /* Непрозрачный фон для меню */
+        background-color: var(--bg-color);
         border-bottom: 1px solid var(--border-color);
         box-shadow: 0 5px 10px var(--shadow-color-light);
-        padding: var(--spacing-unit) 0; /* Внутренние отступы меню сверху/снизу */
-        z-index: 999; /* Чтобы меню было над контентом */
+        padding: var(--spacing-unit) 0;
+        z-index: 999;
     }
     .main-nav.active {
-        display: block; /* Показываем меню при клике на бургер */
+        display: block;
     }
     .main-nav ul {
-        flex-direction: column; /* Пункты в столбец */
-        align-items: center; /* Центрируем по горизонтали */
+        flex-direction: column;
+        align-items: center;
     }
     .main-nav li {
-        margin: 0; /* Убираем все внешние отступы по умолчанию */
-        width: 100%; /* Пункт занимает всю ширину */
-        text-align: center; /* Центрируем текст внутри пункта */
+        margin: 0;
+        width: 100%;
+        text-align: center;
     }
-    /* --- ИСПРАВЛЕНИЕ --- */
-    /* Явно сбрасываем правый отступ для всех, кроме последнего */
     .main-nav li:not(:last-child) {
         margin-right: 0;
     }
-    /* --- КОНЕЦ ИСПРАВЛЕНИЯ --- */
-
     .main-nav a {
-        display: block; /* Ссылка занимает всю ширину li */
-        padding: calc(var(--spacing-unit)*0.8) var(--spacing-unit); /* Внутренние отступы ссылки */
-        border-bottom: 1px solid var(--border-color); /* Разделитель */
-        color: var(--text-color); /* Цвет текста */
+        display: block;
+        padding: calc(var(--spacing-unit)*0.8) var(--spacing-unit);
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-color);
     }
     .main-nav li:last-child a {
-        border-bottom: none; /* Убираем разделитель у последнего пункта */
+        border-bottom: none;
     }
     .main-nav a::after {
-        display: none; /* Убираем эффект подчеркивания на мобильных */
+        display: none;
     }
     .menu-toggle {
-        display: block; /* Показываем кнопку бургера */
+        display: block;
     }
     .grid-layout {
-        grid-template-columns: 1fr; /* Сетка в одну колонку */
+        grid-template-columns: 1fr;
     }
     .about-section .grid-layout > div:first-child {
-        order: 1; /* Текст "Обо мне" идет первым */
+        order: 1;
     }
     .about-section .grid-layout > div:last-child {
-        order: 2; /* Навыки идут вторыми */
+        order: 2;
     }
-
-    /* Стили для позиционирования переключателя языка на мобильных */
-    .language-switcher {
+    .language-switcher { /* Обновленные мобильные стили для кнопок */
         position: absolute;
-        right: 55px; /* Отступ от правого края (чуть больше ширины бургера) */
+        right: 55px;
         top: 50%;
         transform: translateY(-50%);
         margin-left: 0;
         padding-left: 0;
+        gap: calc(var(--spacing-unit) * 0.2);
+    }
+    .language-switcher button.lang-button {
+        padding: 0 3px;
     }
     .site-header .container {
-        position: relative; /* Нужно для absolute позиционирования language-switcher */
+        position: relative;
     }
 }
 
+/* Обновленные стили для переключателя языков */
 .language-switcher {
     font-size: 0.9rem;
     margin-left: auto;
     padding-left: calc(var(--spacing-unit) * 1.5);
     flex-shrink: 0;
+    display: flex;
+    gap: calc(var(--spacing-unit) * 0.3);
+    align-items: center;
 }
-.language-switcher span {
-    font-weight: 700;
-    color: var(--text-color);
+
+.language-switcher button.lang-button {
+    background: none;
+    border: none;
     padding: 0 5px;
-}
-.language-switcher a {
-    text-decoration: none;
-    margin: 0 5px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
     color: var(--secondary-color);
+    transition: color var(--transition-speed) ease;
 }
-.language-switcher a:hover {
+.language-switcher button.lang-button:hover {
     color: var(--primary-color);
     text-decoration: underline;
 }
-
-@media (max-width: 767px) {
-    .language-switcher {
-        position: absolute;
-        right: 50px;
-        top: 50%;
-        transform: translateY(-50%);
-        margin-left: 0;
-        padding-left: 0;
-    }
-    .site-header .container {
-        position: relative;
-    }
+.language-switcher button.lang-button:disabled {
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: default;
+}
+.language-switcher span { /* Старый span больше не используется */
+    display: none;
 }
