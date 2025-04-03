@@ -188,3 +188,34 @@
 .project-footer p {
     margin: 0;
 }
+
+.screenshot-gallery {
+    display: flex;            /* Используем Flexbox */
+    flex-wrap: nowrap;        /* ЗАПРЕЩАЕМ перенос на новую строку */
+    gap: var(--spacing-unit); /* Оставляем промежуток между картинками */
+    overflow-x: auto;         /* ДОБАВЛЯЕМ горизонтальную прокрутку */
+    width: 100%;              /* Галерея занимает всю ширину родителя */
+    padding-bottom: var(--spacing-unit); /* Добавим отступ снизу для полосы прокрутки */
+    margin-top: calc(var(--spacing-unit) * 1.5);
+    align-items: center;      /* Выравниваем картинки по центру по вертикали */
+}
+
+.screenshot-gallery img {
+    display: block;
+    /* ЗАДАЕМ ФИКСИРОВАННУЮ ВЫСОТУ для единообразия */
+    height: 200px; /* Подберите подходящую высоту, например 200px или 250px */
+    width: auto;   /* Ширина будет автоматической для сохранения пропорций */
+    max-width: none; /* Убираем ограничение по ширине контейнера */
+    cursor: pointer;
+
+    /* Оставляем стили оформления */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 2px 5px var(--shadow-color-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.screenshot-gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px var(--shadow-color-heavy);
+}

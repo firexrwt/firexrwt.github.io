@@ -1,36 +1,47 @@
+// Код для /en/neurabox/script.js
+
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- Обновление года в футере ---
     const currentYearSpan = document.getElementById('current-year');
     if (currentYearSpan) {
-        // Используем год из системы пользователя при генерации страницы
         currentYearSpan.textContent = new Date().getFullYear();
     }
 
     // --- Анимация при прокрутке (Intersection Observer) ---
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
-    // Проверяем, поддерживает ли браузер IntersectionObserver
     if ("IntersectionObserver" in window) {
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                // Когда элемент становится видимым
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible'); // Добавляем класс для запуска CSS анимации
-                    observer.unobserve(entry.target); // Отключаем наблюдение после срабатывания анимации
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.1 // Анимация сработает, когда 10% элемента видно
-        });
+        }, { threshold: 0.1 });
 
-        // Начинаем наблюдение за всеми элементами с классом .animate-on-scroll
         animatedElements.forEach(el => {
             observer.observe(el);
         });
     } else {
-        // Если IntersectionObserver не поддерживается, просто делаем все элементы видимыми
         animatedElements.forEach(el => el.classList.add('is-visible'));
+    }
+
+    const galleryImages = document.querySelectorAll('.screenshot-gallery .gallery-image');
+
+    // Проверяем, есть ли картинки и загрузилась ли библиотека basicLightbox
+    if (galleryImages.length > 0 && typeof basicLightbox !== 'undefined') {
+        galleryImages.forEach(img => {
+            // Убираем добавление cursor: pointer из JS, так как добавили в CSS
+            // img.style.cursor = 'pointer';
+            img.addEventListener('click', () => {
+                // Создаем и показываем лайтбокс
+                basicLightbox.create(`
+                    <img src="${img.src}" style="max-width: 90vw; max-height: 90vh;">
+                `).show();
+            });
+        });
     }
 
 });
