@@ -125,5 +125,10 @@
   "cmdDescUnban": "Entbannt einen Benutzer anhand der ID.",
   "cmdDescUnmute": "Gibt einem ausgewählten Mitglied die Möglichkeit zurück, im Chat zu schreiben.",
   "cmdDescWarn": "Erteilt einem Benutzer eine Verwarnung.",
-  "cmdDescWarns": "Zeigt die Liste der Verwarnungen eines Benutzers."
+  "cmdDescWarns": "Zeigt die Liste der Verwarnungen eines Benutzers.",
+  "techNextcordDesc": "(Asynchrone Bibliothek für die Discord-API)",
+  "techRequestsDesc": "(Zur Interaktion mit externen APIs, z.B. Twitch)",
+  "techPillowDesc": "(Bildverarbeitung und Farbextraktion)",
+  "techWaitressDesc": "(WSGI-Server)",
+  "techHumanfriendlyDesc": "(Formatierungshilfsmittel)"
 }
