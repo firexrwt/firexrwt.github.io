@@ -347,22 +347,72 @@ i.ph-bold { margin-right: calc(var(--spacing-unit) * 0.5);}
 @media (max-width: 767px) {
     .main-nav {
         display: none;
-        position: absolute; top: 100%; left: 0; right: 0;
-        background-color: var(--bg-color);
+        position: absolute;
+        top: 100%; /* Располагаем под шапкой */
+        left: 0;
+        right: 0;
+        background-color: var(--bg-color); /* Непрозрачный фон для меню */
         border-bottom: 1px solid var(--border-color);
         box-shadow: 0 5px 10px var(--shadow-color-light);
-        padding: var(--spacing-unit) 0;
+        padding: var(--spacing-unit) 0; /* Внутренние отступы меню сверху/снизу */
+        z-index: 999; /* Чтобы меню было над контентом */
     }
-    .main-nav.active { display: block; }
-    .main-nav ul { flex-direction: column; align-items: center; }
-    .main-nav li { margin: 0; width: 100%; text-align: center; }
-    .main-nav a { display: block; padding: calc(var(--spacing-unit)*0.8) var(--spacing-unit); border-bottom: 1px solid var(--border-color); }
-    .main-nav li:last-child a { border-bottom: none; }
-    .main-nav a::after { display: none; }
-    .menu-toggle { display: block; }
-    .grid-layout { grid-template-columns: 1fr; }
-    .about-section .grid-layout > div:first-child { order: 1; }
-    .about-section .grid-layout > div:last-child { order: 2; }
+    .main-nav.active {
+        display: block; /* Показываем меню при клике на бургер */
+    }
+    .main-nav ul {
+        flex-direction: column; /* Пункты в столбец */
+        align-items: center; /* Центрируем по горизонтали */
+    }
+    .main-nav li {
+        margin: 0; /* Убираем все внешние отступы по умолчанию */
+        width: 100%; /* Пункт занимает всю ширину */
+        text-align: center; /* Центрируем текст внутри пункта */
+    }
+    /* --- ИСПРАВЛЕНИЕ --- */
+    /* Явно сбрасываем правый отступ для всех, кроме последнего */
+    .main-nav li:not(:last-child) {
+        margin-right: 0;
+    }
+    /* --- КОНЕЦ ИСПРАВЛЕНИЯ --- */
+
+    .main-nav a {
+        display: block; /* Ссылка занимает всю ширину li */
+        padding: calc(var(--spacing-unit)*0.8) var(--spacing-unit); /* Внутренние отступы ссылки */
+        border-bottom: 1px solid var(--border-color); /* Разделитель */
+        color: var(--text-color); /* Цвет текста */
+    }
+    .main-nav li:last-child a {
+        border-bottom: none; /* Убираем разделитель у последнего пункта */
+    }
+    .main-nav a::after {
+        display: none; /* Убираем эффект подчеркивания на мобильных */
+    }
+    .menu-toggle {
+        display: block; /* Показываем кнопку бургера */
+    }
+    .grid-layout {
+        grid-template-columns: 1fr; /* Сетка в одну колонку */
+    }
+    .about-section .grid-layout > div:first-child {
+        order: 1; /* Текст "Обо мне" идет первым */
+    }
+    .about-section .grid-layout > div:last-child {
+        order: 2; /* Навыки идут вторыми */
+    }
+
+    /* Стили для позиционирования переключателя языка на мобильных */
+    .language-switcher {
+        position: absolute;
+        right: 55px; /* Отступ от правого края (чуть больше ширины бургера) */
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .site-header .container {
+        position: relative; /* Нужно для absolute позиционирования language-switcher */
+    }
 }
 
 .language-switcher {
