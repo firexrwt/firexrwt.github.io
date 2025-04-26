@@ -67,10 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        if (translations.projectMyTimeTitle) {
-            document.title = translations.projectMyTimeTitle;
+        if (translations.projectGeorgeDroidTitle) {
+            document.title = translations.projectGeorgeDroidTitle;
         } else {
-            console.warn(`Translation key not found: projectMyTimeTitle`);
+            console.warn(`Translation key not found: projectGeorgeDroidTitle`);
         }
 
         // Обновление ссылки "Назад к портфолио"
