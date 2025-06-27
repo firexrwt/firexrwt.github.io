@@ -33,20 +33,21 @@
 
   <section class="project-page-section description-section animate-on-scroll fade-in-up">
     <h2 data-translate="projectDescriptionHeading">Описание</h2>
-    <p data-translate="projectDescGeorgeDroidP1">George-Droid — многофункциональный стриминговый ИИ-компаньон на Python. Он распознаёт речь, остроумно отвечает, общается с чатом Twitch и даже может сыграть с вами в шахматы.</p>
-    <p data-translate="projectDescGeorgeDroidP2">Работает на локальных LLM через Ollama, STT через Faster-Whisper и голосит с помощью Piper. Интеллект бота зависит от того какая модель используется в нём (по умолчанию в качестве главной модели используется llama3.1-8b-instruct-q5_K_S, в качестве модели для распознавания речи используется faster whisper medium с compute type int8_float16. Голос можно поменять скачав .onnx и .onnx.json файлы и замены названий файлов в переменных VOICE_MODEL_PATH и VOICE_CONFIG_PATH).</p>
+    <p data-translate="projectDescGeorgeDroidP1">George-Droid — многофункциональный стриминговый ИИ-ассистент на Python. Он слушает ваш голос, отвечает с юмором и взаимодействует с чатом Twitch как настоящий со-ведущий.</p>
+    <p data-translate="projectDescGeorgeDroidP2">Работает через Together AI (с моделями типа Meta Llama 4 Scout Instruct или любой совместимой моделью Together AI), STT через Faster-Whisper, озвучка через Piper, и система контекстной памяти (RAG). Интеллект бота зависит от выбранной модели (по умолчанию llama-4-scout-17b для LLM, faster-whisper medium с compute type int8 для STT). Голос можно поменять, заменив файлы .onnx и .onnx.json в voices/ и обновив VOICE_MODEL_PATH и VOICE_CONFIG_PATH.</p>
     <p data-translate="projectDescGeorgeDroidP3">Вдохновлён Neuro-Sama от Vedal987.</p>
   </section>
 
   <section class="project-page-section features-section animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
     <h2 data-translate="projectFeaturesGeorgeDroidHeading">Возможности</h2>
     <ul class="feature-list">
-      <li><i class="ph ph-brain"></i> <span data-translate="featureGeorgeDroid1">Ответы от локального LLM (через Ollama)</span></li>
-      <li><i class="ph ph-microphone"></i> <span data-translate="featureGeorgeDroid2">Распознавание речи с VAD (Faster-Whisper)</span></li>
-      <li><i class="ph ph-speaker-high"></i> <span data-translate="featureGeorgeDroid3">Голосовая озвучка (Piper TTS)</span></li>
+      <li><i class="ph ph-brain"></i> <span data-translate="featureGeorgeDroid1">Ответы от Together AI LLM (например, Llama 4 Scout Instruct)</span></li>
+      <li><i class="ph ph-microphone"></i> <span data-translate="featureGeorgeDroid2">Распознавание речи Faster-Whisper + VAD</span></li>
+      <li><i class="ph ph-speaker-high"></i> <span data-translate="featureGeorgeDroid3">Голосовая озвучка Piper TTS</span></li>
       <li><i class="ph ph-twitch-logo"></i> <span data-translate="featureGeorgeDroid4">Бот в чате Twitch (активация по имени/выделению)</span></li>
-      <li><i class="ph ph-chess-knight"></i> <span data-translate="featureGeorgeDroid5">Шахматы с голосовым управлением и GUI (Stockfish)</span></li>
-      <li><i class="ph ph-chat-circle-dots"></i> <span data-translate="featureGeorgeDroid6">Монологи во время тишины, управление горячими клавишами</span></li>
+      <li><i class="ph ph-chat-circle-dots"></i> <span data-translate="featureGeorgeDroid5">Монологи во время тишины, управление горячими клавишами</span></li>
+      <li><i class="ph ph-database"></i> <span data-translate="featureGeorgeDroid6">Контекстная память (RAG) на базе Sentence Transformers и FAISS</span></li>
+      <li><i class="ph ph-camera"></i> <span data-translate="featureGeorgeDroid7">Визуальный контекст со скриншотами для анализа LLM</span></li>
     </ul>
   </section>
 
@@ -54,12 +55,12 @@
     <h2 data-translate="projectTechHeading">Технологии</h2>
     <p data-translate="projectTechGeorgeDroidP1">Использованный стек технологий:</p>
     <ul class="tech-list">
-      <li><i class="ph ph-robot"></i> <strong data-translate="projectTechLLMAPI">LLM API:</strong> <ul><li>Ollama</li></ul></li>
+      <li><i class="ph ph-robot"></i> <strong data-translate="projectTechLLMAPI">LLM API:</strong> <ul><li>Together AI</li></ul></li>
       <li><i class="ph ph-waveform"></i> <strong data-translate="projectTechSTT">STT:</strong> <ul><li>faster-whisper</li></ul></li>
       <li><i class="ph ph-speaker-simple-high"></i> <strong data-translate="projectTechTTS">TTS:</strong> <ul><li>Piper TTS</li></ul></li>
       <li><i class="ph ph-chats"></i> <strong data-translate="projectTechChat">Chat:</strong> <ul><li>twitchio</li></ul></li>
-      <li><i class="ph ph-strategy"></i> <strong data-translate="projectTechChessGUI">Chess GUI:</strong> <ul><li>PySimpleGUI</li></ul></li>
-      <li><i class="ph ph-wrench"></i> <strong data-translate="projectTechTools">Инструменты и Другое:</strong><ul><li>Python 3.10+</li><li>Git & GitHub</li><li>Stockfish</li></ul></li>
+      <li><i class="ph ph-database"></i> <strong data-translate="projectTechMemory">Память:</strong> <ul><li>Sentence Transformers</li><li>FAISS</li></ul></li>
+      <li><i class="ph ph-wrench"></i> <strong data-translate="projectTechTools">Инструменты и Другое:</strong><ul><li>Python 3.10+</li><li>Git & GitHub</li><li>NVidia CUDNN v9.8 & CUDA v12.8</li></ul></li>
     </ul>
   </section>
 
