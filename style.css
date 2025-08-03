@@ -615,6 +615,9 @@ a:hover {
     transition: var(--transition-normal);
     overflow: hidden;
     backdrop-filter: blur(10px);
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .cyber-card::before {
@@ -638,6 +641,8 @@ a:hover {
     box-shadow: 
         0 20px 40px rgba(0, 0, 0, 0.3),
         0 0 40px rgba(0, 255, 255, 0.2);
+    color: inherit;
+    text-decoration: none;
 }
 
 .card-glow {
