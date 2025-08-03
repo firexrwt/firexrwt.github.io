@@ -34,7 +34,7 @@
   "projectsHeading": "My Works",
   "projectNeuraBoxDesc": "A program for running local neural networks with extensive functionality.",
   "projectFirexBotDesc": "Open-source Discord bot (notifications, moderation, levels, mini-games).",
-  "projectMyTimeDesc": "A time-management application for individual entrepreneurs.",
+  "projectMyTimeDesc": "A time-management application (complete rewrite in progress).",
   "projectLearnMore": "Learn more",
   "contactHeading": "Let's work together!",
   "contactP1": "Open to new projects and interesting opportunities. Write to me!",
@@ -83,7 +83,7 @@
   "projectTechUI": "UI & Components:",
   "projectTechBuild": "Build & Testing:",
   "projectLinksMyTimeRepo": "Repository on GitHub",
-  "projectLinksMyTimeStatus": "Google Play Store: (Not published. Major rework planned before release)",
+  "projectLinksMyTimeStatus": "Google Play Store: (V1 completed. V2 complete rewrite in progress)",
   "projectMediaMyTimeHeading": "Screenshots",
   "altMyTimeScreenshot1": "Screenshot My Time 1",
   "altMyTimeScreenshot2": "Screenshot My Time 2",
@@ -151,5 +151,9 @@
   "projectTechTTS": "TTS:",
   "projectTechChat": "Chat:",
   "projectTechMemory": "Memory:",
-  "projectLinksGeorgeDroidRepo": "Repository on GitHub"
+  "projectLinksGeorgeDroidRepo": "Repository on GitHub",
+  "projectsPageTitle": "Projects | Stepan - Technology Enthusiast",
+  "backToHome": "Back to home",
+  "projectsPageHeading": "My Projects",
+  "projectsPageSubtitle": "A collection of my work in software development, AI, and automation"
 }

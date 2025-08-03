@@ -34,7 +34,7 @@
   "projectsHeading": "Meine Arbeiten",
   "projectNeuraBoxDesc": "Ein Programm zum Ausführen lokaler neuronaler Netze mit umfangreicher Funktionalität.",
   "projectFirexBotDesc": "Open-Source Discord-Bot (Benachrichtigungen, Moderation, Level, Minispiele).",
-  "projectMyTimeDesc": "Eine Zeitmanagement-Anwendung für Einzelunternehmer.",
+  "projectMyTimeDesc": "Eine Zeitmanagement-Anwendung (vollständige Neuprogrammierung läuft).",
   "projectLearnMore": "Mehr erfahren",
   "contactHeading": "Lassen Sie uns zusammenarbeiten!",
   "contactP1": "Offen für neue Projekte und interessante Angebote. Schreiben Sie mir!",
@@ -83,7 +83,7 @@
   "projectTechUI": "UI & Komponenten:",
   "projectTechBuild": "Build & Testing:",
   "projectLinksMyTimeRepo": "Repository auf GitHub",
-  "projectLinksMyTimeStatus": "Google Play Store: (Nicht veröffentlicht. Umfassende Überarbeitung vor Release geplant)",
+  "projectLinksMyTimeStatus": "Google Play Store: (V1 abgeschlossen. V2 vollständige Neuprogrammierung läuft)",
   "projectMediaMyTimeHeading": "Screenshots",
   "altMyTimeScreenshot1": "Screenshot My Time 1",
   "altMyTimeScreenshot2": "Screenshot My Time 2",
@@ -151,5 +151,9 @@
   "projectTechTTS": "TTS:",
   "projectTechChat": "Chat:",
   "projectTechMemory": "Gedächtnis:",
-  "projectLinksGeorgeDroidRepo": "Repository auf GitHub"
+  "projectLinksGeorgeDroidRepo": "Repository auf GitHub",
+  "projectsPageTitle": "Projekte | Stepan - Technologie-Enthusiast",
+  "backToHome": "Zurück zur Startseite",
+  "projectsPageHeading": "Meine Projekte",
+  "projectsPageSubtitle": "Eine Sammlung meiner Arbeiten in Softwareentwicklung, KI und Automatisierung"
 }

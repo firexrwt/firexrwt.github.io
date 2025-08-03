@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const cursorSpan = document.querySelector('.typed-cursor');
     let textArray = []; // Теперь массив будет загружаться из JSON
     let typingBaseText = ""; // Базовая часть фразы
-    const typingDelay = 100;
-    const erasingDelay = 50;
-    const newTextDelay = 2000;
+    const typingDelay = 80;
+    const erasingDelay = 40;
+    const newTextDelay = 1500;
     let textArrayIndex = 0;
     let charIndex = 0;
     let typeTimeout, eraseTimeout; // Для остановки анимации при смене языка
@@ -284,9 +284,55 @@ document.addEventListener('DOMContentLoaded', function() {
         animatedElements.forEach(el => el.classList.add('is-visible'));
     }
 
+    // --- Интерактивные эффекты для карточек ---
+    function setupCardEffects() {
+        const cards = document.querySelectorAll('.cyber-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+            });
+        });
+    }
+
+    // --- Particle animation ---
+    function createFloatingParticles() {
+        const particlesContainer = document.querySelector('.floating-particles');
+        if (!particlesContainer) return;
+
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '2px';
+            particle.style.height = '2px';
+            particle.style.background = 'rgba(0, 255, 255, 0.5)';
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animation = `particleMove ${Math.random() * 20 + 10}s linear infinite`;
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particlesContainer.appendChild(particle);
+        }
+    }
+
+    // --- Terminal typing effect improvements ---
+    function enhanceTerminalEffect() {
+        const terminalLines = document.querySelectorAll('.terminal-line');
+        terminalLines.forEach((line, index) => {
+            line.style.animationDelay = `${index * 0.3}s`;
+            line.classList.add('animate-fade-in');
+        });
+    }
+
     // --- Инициализация при загрузке страницы ---
     updateYear();
     setupMobileMenu();
+    setupCardEffects();
+    createFloatingParticles();
+    enhanceTerminalEffect();
 
     // Определяем начальный язык
     const savedLang = localStorage.getItem('preferredLanguage');

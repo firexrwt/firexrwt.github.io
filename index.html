@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -21,7 +21,7 @@
         <nav class="main-nav">
             <ul>
                 <li><a href="#about" data-translate="navAbout">Обо мне</a></li>
-                <li><a href="#projects" data-translate="navProjects">Проекты</a></li>
+                <li><a href="/projects.html" data-translate="navProjects">Проекты</a></li>
                 <li><a href="#contact" data-translate="navContact">Контакты</a></li>
             </ul>
         </nav>
@@ -38,19 +38,47 @@
 
 <main>
     <section class="hero">
+        <div class="hero-bg">
+            <div class="grid-bg"></div>
+            <div class="floating-particles"></div>
+        </div>
         <div class="hero-content container">
-            <span class="hero-intro animate-fade-in" data-translate="heroIntro">Привет, я Степан 👋</span>
-            <h1 class="hero-title animate-fade-in" style="animation-delay: 0.2s;" data-translate="heroTitle">Энтузиаст Технологий и Разработчик</h1>
-            <p class="hero-subtitle animate-fade-in" style="animation-delay: 0.4s;">
-                <span data-translate="heroSubtitleBase">Создаю </span><span id="typed-text"></span>
-                <span class="typed-cursor">|</span>
-            </p>
-            <div class="hero-cta animate-fade-in" style="animation-delay: 0.6s;">
-                <a href="#projects" class="cta-button primary"><span data-translate="heroBtnProjects">Смотреть проекты</span> <i class="ph-fill ph-arrow-right"></i></a>
+            <div class="terminal-window animate-fade-in">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="btn red"></span>
+                        <span class="btn yellow"></span>
+                        <span class="btn green"></span>
+                    </div>
+                    <div class="terminal-title">~/stepan-portfolio</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span> 
+                        <span class="command">whoami</span>
+                    </div>
+                    <div class="terminal-line output" data-translate="heroIntro">Привет, я Степан 👋</div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span> 
+                        <span class="command">cat role.txt</span>
+                    </div>
+                    <div class="terminal-line output" data-translate="heroTitle">Энтузиаст Технологий и Разработчик</div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span> 
+                        <span class="command">echo "I create "</span><span class="typed-text" id="typed-text"></span>
+                        <span class="typed-cursor">█</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-cta animate-fade-in" style="animation-delay: 0.8s;">
+                <a href="/projects.html" class="cta-button primary glow-effect">
+                    <i class="ph-bold ph-code"></i>
+                    <span data-translate="heroBtnProjects">Смотреть проекты</span>
+                    <i class="ph-bold ph-arrow-right"></i>
+                </a>
                 <a href="#contact" class="cta-button secondary" data-translate="heroBtnContact">Связаться</a>
             </div>
         </div>
-        <div class="hero-bg"></div>
     </section>
 
     <section id="about" class="about-section content-section">
@@ -82,40 +110,126 @@
 
     <section id="projects" class="projects-section content-section">
         <div class="container">
-            <h2 class="animate-on-scroll fade-in" data-translate="projectsHeading">Мои Работы</h2>
+            <div class="section-header">
+                <h2 class="animate-on-scroll fade-in glitch-text" data-translate="projectsHeading">Мои Работы</h2>
+                <div class="section-subtitle animate-on-scroll fade-in">
+                    <span class="code-bracket">[</span>
+                    <span class="tech-highlight">projects.filter(p => p.featured)</span>
+                    <span class="code-bracket">]</span>
+                </div>
+            </div>
             <div class="projects-grid">
-                <a href="/george-droid/" class="project-card animate-on-scroll fade-in-up" target="_blank" rel="noopener noreferrer">
-                    <div class="project-image-placeholder"> <i class="ph ph-robot"></i> </div>
-                    <div class="project-info">
-                        <h3>George-Droid</h3>
-                        <p data-translate="projectGeorgeDroidDesc">ИИ-компаньон для стримов, вдохновлённый Neuro-Sama.</p>
-                        <span class="project-link" data-translate="projectLearnMore">Узнать больше <i class="ph-bold ph-arrow-right"></i></span>
+                <div class="project-card cyber-card animate-on-scroll fade-in-up" data-project="george-droid">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="ph-bold ph-robot"></i>
+                        </div>
+                        <div class="project-status">
+                            <span class="status-dot active"></span>
+                            <span class="status-text">ACTIVE</span>
+                        </div>
                     </div>
-                </a>
-                <a href="/neurabox/" class="project-card animate-on-scroll fade-in-up" style="animation-delay: 0.1s;" target="_blank" rel="noopener noreferrer">
-                    <div class="project-image-placeholder"> <i class="ph ph-brain"></i> </div>
-                    <div class="project-info">
-                        <h3>NeuraBox</h3>
-                        <p data-translate="projectNeuraBoxDesc">Программа для запуска локальных нейросетей с широким функционалом.</p>
-                        <span class="project-link" data-translate="projectLearnMore">Узнать больше <i class="ph-bold ph-arrow-right"></i></span>
+                    <div class="project-content">
+                        <h3 class="project-title">George-Droid</h3>
+                        <p class="project-desc" data-translate="projectGeorgeDroidDesc">ИИ-компаньон для стримов, вдохновлённый Neuro-Sama.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">Streaming</span>
+                        </div>
                     </div>
-                </a>
-                <a href="/firex-bot/" class="project-card animate-on-scroll fade-in-up" style="animation-delay: 0.2s;" target="_blank" rel="noopener noreferrer">
-                    <div class="project-image-placeholder"> <i class="ph ph-discord-logo"></i> </div>
-                    <div class="project-info">
-                        <h3>FIREX BOT</h3>
-                        <p data-translate="projectFirexBotDesc">Open-source Discord бот (уведомления, модерация, уровни, мини-игры).</p>
-                        <span class="project-link" data-translate="projectLearnMore">Узнать больше <i class="ph-bold ph-arrow-right"></i></span>
+                    <div class="project-footer">
+                        <a href="/projects.html#george-droid" class="project-link">
+                            <span data-translate="projectLearnMore">Узнать больше</span>
+                            <i class="ph-bold ph-arrow-up-right"></i>
+                        </a>
                     </div>
-                </a>
-                <a href="/my-time/" class="project-card animate-on-scroll fade-in-up" style="animation-delay: 0.3s;" target="_blank" rel="noopener noreferrer">
-                    <div class="project-image-placeholder"> <i class="ph ph-timer"></i> </div>
-                    <div class="project-info">
-                        <h3>My Time</h3>
-                        <p data-translate="projectMyTimeDesc">Приложение для тайм-менеджмента для индивидуальных предпринимателей.</p>
-                        <span class="project-link" data-translate="projectLearnMore">Узнать больше <i class="ph-bold ph-arrow-right"></i></span>
+                </div>
+
+                <div class="project-card cyber-card animate-on-scroll fade-in-up" style="animation-delay: 0.1s;" data-project="neurabox">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="ph-bold ph-brain"></i>
+                        </div>
+                        <div class="project-status">
+                            <span class="status-dot development"></span>
+                            <span class="status-text">DEV</span>
+                        </div>
                     </div>
-                </a>
+                    <div class="project-content">
+                        <h3 class="project-title">NeuraBox</h3>
+                        <p class="project-desc" data-translate="projectNeuraBoxDesc">Программа для запуска локальных нейросетей с широким функционалом.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Neural Networks</span>
+                            <span class="tech-tag">GUI</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <a href="/projects.html#neurabox" class="project-link">
+                            <span data-translate="projectLearnMore">Узнать больше</span>
+                            <i class="ph-bold ph-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card cyber-card animate-on-scroll fade-in-up" style="animation-delay: 0.2s;" data-project="firex-bot">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="ph-bold ph-discord-logo"></i>
+                        </div>
+                        <div class="project-status">
+                            <span class="status-dot active"></span>
+                            <span class="status-text">LIVE</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">FIREX BOT</h3>
+                        <p class="project-desc" data-translate="projectFirexBotDesc">Open-source Discord бот (уведомления, модерация, уровни, мини-игры).</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Discord.py</span>
+                            <span class="tech-tag">Bot</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <a href="/projects.html#firex-bot" class="project-link">
+                            <span data-translate="projectLearnMore">Узнать больше</span>
+                            <i class="ph-bold ph-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card cyber-card animate-on-scroll fade-in-up" style="animation-delay: 0.3s;" data-project="my-time">
+                    <div class="card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="ph-bold ph-timer"></i>
+                        </div>
+                        <div class="project-status">
+                            <span class="status-dot development"></span>
+                            <span class="status-text">V2</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">My Time</h3>
+                        <p class="project-desc" data-translate="projectMyTimeDesc">Приложение для тайм-менеджмента для индивидуальных предпринимателей.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Mobile</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <a href="/projects.html#my-time" class="project-link">
+                            <span data-translate="projectLearnMore">Узнать больше</span>
+                            <i class="ph-bold ph-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

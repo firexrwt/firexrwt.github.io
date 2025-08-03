@@ -34,7 +34,7 @@
   "projectsHeading": "Мои Работы",
   "projectNeuraBoxDesc": "Программа для запуска локальных нейросетей с широким функционалом.",
   "projectFirexBotDesc": "Open-source Discord бот (уведомления, модерация, уровни, мини-игры).",
-  "projectMyTimeDesc": "Приложение для тайм-менеджмента для индивидуальных предпринимателей.",
+  "projectMyTimeDesc": "Приложение для тайм-менеджмента (полностью переписывается).",
   "projectLearnMore": "Узнать больше",
   "contactHeading": "Давайте работать вместе!",
   "contactP1": "Открыт для новых проектов и интересных предложений. Напишите мне!",
@@ -83,7 +83,7 @@
   "projectTechUI": "UI и Компоненты:",
   "projectTechBuild": "Сборка и Тестирование:",
   "projectLinksMyTimeRepo": "Репозиторий на GitHub",
-  "projectLinksMyTimeStatus": "Google Play Store: (Не опубликовано. Планируется масштабный реворк перед релизом)",
+  "projectLinksMyTimeStatus": "Google Play Store: (V1 завершена. V2 полностью переписывается)",
   "projectMediaMyTimeHeading": "Скриншоты",
   "altMyTimeScreenshot1": "Скриншот My Time 1",
   "altMyTimeScreenshot2": "Скриншот My Time 2",
@@ -151,5 +151,9 @@
   "projectTechTTS": "TTS:",
   "projectTechChat": "Чат:",
   "projectTechMemory": "Память:",
-  "projectLinksGeorgeDroidRepo": "Репозиторий на GitHub"
+  "projectLinksGeorgeDroidRepo": "Репозиторий на GitHub",
+  "projectsPageTitle": "Проекты | Степан - Энтузиаст Технологий",
+  "backToHome": "Назад на главную",
+  "projectsPageHeading": "Мои Проекты",
+  "projectsPageSubtitle": "Коллекция моих работ в области разработки программного обеспечения, ИИ и автоматизации"
 }

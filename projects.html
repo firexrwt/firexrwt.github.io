@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="projectsPageTitle">Проекты | Степан - Энтузиаст Технологий</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <a href="/" class="logo">Stepan</a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/#about" data-translate="navAbout">Обо мне</a></li>
+                <li><a href="/projects.html" data-translate="navProjects">Проекты</a></li>
+                <li><a href="/#contact" data-translate="navContact">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="language-switcher">
+            <button onclick="setLanguage('ru')" class="lang-button" data-lang="ru">RU</button>
+            <button onclick="setLanguage('en')" class="lang-button" data-lang="en">EN</button>
+            <button onclick="setLanguage('de')" class="lang-button" data-lang="de">DE</button>
+        </div>
+        <button class="menu-toggle" aria-label="Открыть меню" data-translate-aria="menuAriaLabel">
+            <i class="ph ph-list"></i>
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="projects-page-hero">
+        <div class="hero-bg">
+            <div class="grid-bg"></div>
+            <div class="floating-particles"></div>
+        </div>
+        <div class="container">
+            <div class="back-navigation">
+                <a href="/" class="back-link">
+                    <i class="ph-bold ph-arrow-left"></i>
+                    <span data-translate="backToHome">Назад на главную</span>
+                </a>
+            </div>
+            <div class="projects-hero-content">
+                <h1 class="glitch-text animate-fade-in" data-translate="projectsPageHeading">Мои Проекты</h1>
+                <p class="projects-subtitle animate-fade-in" style="animation-delay: 0.2s;" data-translate="projectsPageSubtitle">
+                    Коллекция моих работ в области разработки программного обеспечения, ИИ и автоматизации
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="detailed-projects">
+        <div class="container">
+            
+            <!-- George-Droid Project -->
+            <article class="project-detail cyber-card animate-on-scroll fade-in-up" id="george-droid">
+                <div class="card-glow"></div>
+                <div class="project-detail-header">
+                    <div class="project-icon large">
+                        <i class="ph-bold ph-robot"></i>
+                    </div>
+                    <div class="project-meta">
+                        <h2 class="project-title">George-Droid</h2>
+                        <p class="project-tagline" data-translate="projectGeorgeDroidDesc">ИИ-компаньон для стримов, вдохновлённый Neuro-Sama.</p>
+                        <div class="project-status">
+                            <span class="status-dot active"></span>
+                            <span class="status-text">ACTIVE PROJECT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-detail-content">
+                    <div class="project-description">
+                        <h3 data-translate="projectDescriptionHeading">Описание</h3>
+                        <p data-translate="projectDescGeorgeDroidP1">George-Droid — многофункциональный стриминговый ИИ-ассистент на Python. Он слушает ваш голос, отвечает с юмором и взаимодействует с чатом Twitch как настоящий со-ведущий.</p>
+                        <p data-translate="projectDescGeorgeDroidP2">Работает через Together AI (с моделями типа Meta Llama 4 Scout Instruct или любой совместимой моделью Together AI), STT через Faster-Whisper, озвучка через Piper, и система контекстной памяти (RAG). Интеллект бота зависит от выбранной модели.</p>
+                    </div>
+
+                    <div class="project-features">
+                        <h3 data-translate="projectFeaturesGeorgeDroidHeading">Возможности</h3>
+                        <ul class="feature-list">
+                            <li data-translate="featureGeorgeDroid1">Together AI LLM для умных ответов</li>
+                            <li data-translate="featureGeorgeDroid2">Faster-Whisper STT + VAD</li>
+                            <li data-translate="featureGeorgeDroid3">Piper TTS для озвучки</li>
+                            <li data-translate="featureGeorgeDroid4">Twitch чат-бот</li>
+                            <li data-translate="featureGeorgeDroid5">Монологи во время тишины</li>
+                            <li data-translate="featureGeorgeDroid6">Контекстная память (RAG)</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-tech-stack">
+                        <h3 data-translate="projectTechHeading">Технологии</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Together AI</span>
+                            <span class="tech-tag">Faster-Whisper</span>
+                            <span class="tech-tag">Piper TTS</span>
+                            <span class="tech-tag">Twitch API</span>
+                            <span class="tech-tag">FAISS</span>
+                            <span class="tech-tag">Sentence Transformers</span>
+                        </div>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/firexrwt/george-droid" class="project-cta primary" target="_blank" rel="noopener">
+                            <i class="ph-bold ph-github-logo"></i>
+                            <span data-translate="projectLinksGeorgeDroidRepo">Репозиторий на GitHub</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- NeuraBox Project -->
+            <article class="project-detail cyber-card animate-on-scroll fade-in-up" id="neurabox">
+                <div class="card-glow"></div>
+                <div class="project-detail-header">
+                    <div class="project-icon large">
+                        <i class="ph-bold ph-brain"></i>
+                    </div>
+                    <div class="project-meta">
+                        <h2 class="project-title">NeuraBox</h2>
+                        <p class="project-tagline" data-translate="projectNeuraBoxDesc">Программа для запуска локальных нейросетей с широким функционалом.</p>
+                        <div class="project-status">
+                            <span class="status-dot development"></span>
+                            <span class="status-text">IN DEVELOPMENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-detail-content">
+                    <div class="project-description">
+                        <h3 data-translate="projectDescriptionHeading">Описание</h3>
+                        <p data-translate="projectDescP1">NeuraBox — это мощное и гибкое приложение-ИИ ассистент, разработанное для работы с различными нейронными сетями и обеспечивающее удобный пользовательский интерфейс для генерации текста, изображений и видео.</p>
+                        <p data-translate="projectDescP2">NeuraBox предназначен для энтузиастов ИИ, исследователей и разработчиков, которые ищут приватный и эффективный способ взаимодействия с локальными моделями ИИ.</p>
+                    </div>
+
+                    <div class="project-features">
+                        <h3 data-translate="projectFeaturesHeading">Основные Возможности</h3>
+                        <ul class="feature-list">
+                            <li data-translate="featureNeuraBox1">Система чатов с вкладками</li>
+                            <li data-translate="featureNeuraBox2">Поддержка множества моделей</li>
+                            <li data-translate="featureNeuraBox3">Локальная обработка</li>
+                            <li data-translate="featureNeuraBox4">Интерфейс с темной темой</li>
+                            <li data-translate="featureNeuraBox5">Чат в реальном времени</li>
+                            <li data-translate="featureNeuraBox6">Синхронизация задач</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-tech-stack">
+                        <h3 data-translate="projectTechHeading">Технологии</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Transformers</span>
+                            <span class="tech-tag">PyQt/Tkinter</span>
+                            <span class="tech-tag">Hugging Face</span>
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">CUDA</span>
+                        </div>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/firexrwt/neurabox" class="project-cta primary" target="_blank" rel="noopener">
+                            <i class="ph-bold ph-github-logo"></i>
+                            <span data-translate="projectLinksRepo">Репозиторий на GitHub</span>
+                        </a>
+                        <span class="project-status-note" data-translate="projectLinksDemo">Release версия скоро будет доступна!</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- FIREX BOT Project -->
+            <article class="project-detail cyber-card animate-on-scroll fade-in-up" id="firex-bot">
+                <div class="card-glow"></div>
+                <div class="project-detail-header">
+                    <div class="project-icon large">
+                        <i class="ph-bold ph-discord-logo"></i>
+                    </div>
+                    <div class="project-meta">
+                        <h2 class="project-title">FIREX BOT</h2>
+                        <p class="project-tagline" data-translate="projectFirexBotDesc">Open-source Discord бот (уведомления, модерация, уровни, мини-игры).</p>
+                        <div class="project-status">
+                            <span class="status-dot active"></span>
+                            <span class="status-text">LIVE & MAINTAINED</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-detail-content">
+                    <div class="project-description">
+                        <h3 data-translate="projectDescriptionHeading">Описание</h3>
+                        <p data-translate="projectDescFirexBotP1">FIREX BOT — это многофункциональный Discord-бот с открытым исходным кодом, разработанный для упрощения управления сервером и добавления интерактивных элементов для сообщества.</p>
+                        <p data-translate="projectDescFirexBotP2">Бот предоставляет набор инструментов, включая уведомления о начале стримов на Twitch, команды модерации, систему уровней на основе активности пользователей и развлекательные мини-игры.</p>
+                    </div>
+
+                    <div class="project-features">
+                        <h3 data-translate="projectFeaturesFirexBotHeading">Ключевые Функции</h3>
+                        <ul class="feature-list">
+                            <li data-translate="featureFirexBot1">Уведомления Twitch</li>
+                            <li data-translate="featureFirexBot2">Модерация</li>
+                            <li data-translate="featureFirexBot3">Система Уровней</li>
+                            <li data-translate="featureFirexBot4">Мини-игры</li>
+                            <li data-translate="featureFirexBot5">Открытый Исходный Код</li>
+                            <li data-translate="featureFirexBot6">Локальное Развертывание</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-tech-stack">
+                        <h3 data-translate="projectTechHeading">Технологии</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Discord.py</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">Twitch API</span>
+                            <span class="tech-tag">Asyncio</span>
+                        </div>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/firexrwt/firex-bot" class="project-cta primary" target="_blank" rel="noopener">
+                            <i class="ph-bold ph-github-logo"></i>
+                            <span data-translate="projectLinksFirexBotRepo">Репозиторий на GitHub</span>
+                        </a>
+                        <span class="project-status-note" data-translate="projectLinksFirexBotStatus">Глобальная версия скоро!</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- My Time Project -->
+            <article class="project-detail cyber-card animate-on-scroll fade-in-up" id="my-time">
+                <div class="card-glow"></div>
+                <div class="project-detail-header">
+                    <div class="project-icon large">
+                        <i class="ph-bold ph-timer"></i>
+                    </div>
+                    <div class="project-meta">
+                        <h2 class="project-title">My Time</h2>
+                        <p class="project-tagline" data-translate="projectMyTimeDesc">Приложение для тайм-менеджмента для индивидуальных предпринимателей.</p>
+                        <div class="project-status">
+                            <span class="status-dot development"></span>
+                            <span class="status-text">V2 IN DEVELOPMENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-detail-content">
+                    <div class="project-description">
+                        <h3 data-translate="projectDescriptionHeading">Описание</h3>
+                        <p data-translate="projectDescMyTimeP1">Добро пожаловать в My Time, вашего персонального ассистента по управлению временем. Это Android-приложение, разработанное в качестве выпускного проекта в IT Школе Самсунг (2022).</p>
+                        <p data-translate="projectDescMyTimeP2">Проект фокусировался на создании удобного инструмента для организации рабочего процесса и повышения продуктивности.</p>
+                    </div>
+
+                    <div class="project-features">
+                        <h3 data-translate="projectFeaturesMyTimeHeading">Реализованные Функции</h3>
+                        <ul class="feature-list">
+                            <li data-translate="featureMyTime1">Управление задачами</li>
+                            <li data-translate="featureMyTime2">Учет времени</li>
+                            <li data-translate="featureMyTime3">Управление событиями/записями</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-tech-stack">
+                        <h3 data-translate="projectTechHeading">Технологии</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">Material Design</span>
+                        </div>
+                    </div>
+
+                    <div class="project-media">
+                        <h3 data-translate="projectMediaMyTimeHeading">Скриншоты</h3>
+                        <div class="screenshot-gallery">
+                            <img src="/my-time/images/mytime_screenshot1.png" alt="My Time Screenshot 1" class="project-screenshot" data-translate-alt="altMyTimeScreenshot1">
+                            <img src="/my-time/images/mytime_screenshot2.png" alt="My Time Screenshot 2" class="project-screenshot" data-translate-alt="altMyTimeScreenshot2">
+                            <img src="/my-time/images/mytime_screenshot3.png" alt="My Time Screenshot 3" class="project-screenshot" data-translate-alt="altMyTimeScreenshot3">
+                        </div>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/firexrwt/my-time" class="project-cta primary" target="_blank" rel="noopener">
+                            <i class="ph-bold ph-github-logo"></i>
+                            <span data-translate="projectLinksMyTimeRepo">Репозиторий на GitHub</span>
+                        </a>
+                        <span class="project-status-note" data-translate="projectLinksMyTimeStatus">Планируется реворк перед релизом</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; <span id="current-year">2025</span> <span data-translate="footerText">Степан. Сделано с <i class="ph-fill ph-heart" style="color: var(--neon-cyan);"></i> в Вене.</span></p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
