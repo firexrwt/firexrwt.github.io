@@ -41,7 +41,7 @@
   "contactBtnEmail": "Email",
   "contactBtnGithub": "GitHub",
   "contactBtnLinkedin": "LinkedIn",
-  "footerText": "Stepan. Made with <i class=\"ph-fill ph-heart\" style=\"color: var(--primary-color);\"></i> in Vienna.",
+  "footerText": "Stepan. Made with <i class=\"ph-fill ph-heart\" style=\"color: var(--neon-cyan);\"></i> in Vienna.",
   "projectNeuraBoxTitle": "NeuraBox Project | Stepan's Portfolio",
   "projectBackLink": "Back to Portfolio",
   "projectDescriptionHeading": "Description",

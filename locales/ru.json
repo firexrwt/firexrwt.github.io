@@ -41,7 +41,7 @@
   "contactBtnEmail": "Email",
   "contactBtnGithub": "GitHub",
   "contactBtnLinkedin": "LinkedIn",
-  "footerText": "Степан. Сделано с <i class=\"ph-fill ph-heart\" style=\"color: var(--primary-color);\"></i> в Вене.",
+  "footerText": "Степан. Сделано с <i class=\"ph-fill ph-heart\" style=\"color: var(--neon-cyan);\"></i> в Вене.",
   "projectNeuraBoxTitle": "Проект NeuraBox | Портфолио Степана",
   "projectBackLink": "Назад к портфолио",
   "projectDescriptionHeading": "Описание",
