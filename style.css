@@ -876,6 +876,42 @@ a:hover {
 /* ===============================
    RESPONSIVE DESIGN
    =============================== */
+
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .terminal-window {
+        max-width: 90%;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .project-detail-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-cta {
+        gap: var(--spacing-md);
+    }
+}
+
+/* Large mobile / small tablet */
+@media (max-width: 1024px) {
+    .floating-particles {
+        display: none; /* Отключаем анимации на слабых устройствах */
+    }
+    
+    .glitch-text::before,
+    .glitch-text::after {
+        display: none; /* Упрощаем глитч-эффект */
+    }
+}
 @media (max-width: 768px) {
     .main-nav {
         display: none;
@@ -887,6 +923,7 @@ a:hover {
         backdrop-filter: blur(20px);
         border-bottom: 1px solid rgba(0, 255, 255, 0.2);
         padding: var(--spacing-sm) 0;
+        z-index: 999;
     }
     
     .main-nav.active {
@@ -899,64 +936,202 @@ a:hover {
         gap: var(--spacing-sm);
     }
     
+    .main-nav a {
+        padding: var(--spacing-sm);
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+    }
+    
+    .main-nav li:last-child a {
+        border-bottom: none;
+    }
+    
     .menu-toggle {
         display: block;
+        z-index: 1001;
     }
     
     .hero-content {
-        padding-top: 80px;
+        padding-top: 100px;
     }
     
     .terminal-window {
         margin: 0 var(--spacing-sm) var(--spacing-lg);
+        max-width: calc(100vw - 2rem);
+    }
+    
+    .terminal-body {
+        padding: var(--spacing-sm);
+        font-size: 0.85rem;
+    }
+    
+    .terminal-line {
+        flex-wrap: wrap;
+        margin-bottom: 0.3rem;
     }
     
     .hero-cta {
         flex-direction: column;
         align-items: center;
+        gap: var(--spacing-sm);
     }
     
     .cta-button {
         width: 100%;
-        max-width: 250px;
+        max-width: 280px;
         justify-content: center;
+        padding: var(--spacing-sm) var(--spacing-md);
     }
     
     .projects-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .project-detail-header {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .project-icon.large {
+        align-self: center;
     }
     
     .grid-layout {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .skills-list li {
+        font-size: 0.95rem;
+        padding: 0.4rem;
     }
     
     .language-switcher {
         position: absolute;
-        right: 60px;
+        right: 70px;
         top: 50%;
         transform: translateY(-50%);
+        font-size: 0.8rem;
+    }
+    
+    .lang-button {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.8rem;
     }
     
     .container {
         padding: 0 var(--spacing-sm);
     }
+    
+    .section-header {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .section-subtitle {
+        font-size: 0.8rem;
+        overflow-wrap: break-word;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-link-button {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
+    .hero-content {
+        padding-top: 80px;
+    }
+    
     .terminal-window {
         margin: 0 0.5rem var(--spacing-lg);
+        max-width: calc(100vw - 1rem);
     }
     
     .terminal-body {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .terminal-title {
+        font-size: 0.8rem;
+    }
+    
+    .terminal-buttons .btn {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .cta-button {
+        max-width: 100%;
+        font-size: 0.9rem;
+    }
+    
+    .project-detail {
         padding: var(--spacing-sm);
     }
     
-    .projects-grid {
-        margin: 0 -0.5rem;
+    .project-meta .project-title {
+        font-size: 2rem;
     }
     
-    .cyber-card {
-        margin: 0 0.5rem;
+    .project-tagline {
+        font-size: 1rem;
+    }
+    
+    .tech-tags {
+        gap: 0.5rem;
+    }
+    
+    .tech-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .feature-list li {
+        font-size: 0.9rem;
+        padding: 0.3rem 0 0.3rem 1.5rem;
+    }
+    
+    .feature-list li::before {
+        font-size: 0.7rem;
+    }
+    
+    .screenshot-gallery {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+    }
+    
+    .language-switcher {
+        right: 65px;
+        font-size: 0.75rem;
+    }
+    
+    .lang-button {
+        padding: 0.15rem 0.3rem;
+        font-size: 0.75rem;
+    }
+    
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    .glitch-text {
+        font-size: 2rem;
+    }
+    
+    .projects-subtitle {
+        font-size: 1rem;
+        padding: 0 var(--spacing-sm);
     }
 }
 
@@ -1245,6 +1420,46 @@ a:hover {
 *:focus {
     outline: 2px solid var(--neon-cyan);
     outline-offset: 2px;
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .cyber-card:hover {
+        transform: none; /* Отключаем hover-эффекты на touch */
+    }
+    
+    .project-screenshot:hover {
+        transform: none;
+    }
+    
+    .tech-tag:hover {
+        transform: none;
+    }
+    
+    .contact-link-button:hover {
+        transform: none;
+    }
+    
+    /* Увеличиваем размеры touch-целей */
+    .lang-button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .menu-toggle {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .cta-button {
+        min-height: 48px;
+    }
+    
+    .project-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
 }
 
 /* High contrast mode support */
