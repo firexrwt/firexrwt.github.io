@@ -534,6 +534,56 @@ a:hover {
     font-size: 1.2rem;
 }
 
+/* Skills Categories */
+.skill-category {
+    margin-bottom: var(--spacing-md);
+}
+
+.skill-category h4 {
+    color: var(--neon-purple);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+}
+
+.skill-category h4 i {
+    color: var(--neon-cyan);
+    margin-right: var(--spacing-xs);
+    font-size: 1.2rem;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: rgba(26, 26, 46, 0.4);
+    color: var(--text-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(64, 224, 208, 0.2);
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+    white-space: nowrap;
+}
+
+.skill-tag:hover {
+    background: rgba(64, 224, 208, 0.1);
+    border-color: var(--neon-cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(64, 224, 208, 0.15);
+}
+
+.skill-tag.primary {
+    background: rgba(64, 224, 208, 0.15);
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+    font-weight: 600;
+}
+
 /* ===============================
    PROJECTS SECTION
    =============================== */
