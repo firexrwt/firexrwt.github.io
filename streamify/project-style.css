@@ -1,0 +1,316 @@
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in { transform: translateY(30px); }
+.fade-in-left { transform: translateX(-30px); }
+.fade-in-right { transform: translateX(30px); }
+.fade-in-up { transform: translateY(50px); }
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* --- Переменная для цвета логотипа (если используется маска) --- */
+:root {
+    --logo-color: var(--text-color);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --logo-color: var(--dark-text-color);
+    }
+}
+
+/* --- Общая компоновка страницы проекта --- */
+.project-page-container {
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+}
+
+/* --- Логотип (если используется маска) --- */
+.project-logo-container {
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+.project-logo-masked {
+    display: inline-block;
+    width: 150px; /* Настройте */
+    height: 150px; /* Настройте */
+    background-color: var(--logo-color);
+    transition: background-color var(--transition-speed) ease;
+    /* Пути к маске должны быть правильными для КАЖДОГО проекта, если лого разные */
+    /* Например, для NeuraBox: */
+    /* mask-image: url('images/neurabox-logo.svg'); */
+    /* -webkit-mask-image: url('images/neurabox-logo.svg'); */
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+}
+/* Если для My Time логотипа нет, этот блок .project-logo-masked просто не будет использоваться */
+
+
+.project-page-container h1 {
+    text-align: center;
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    color: var(--primary-color);
+}
+
+.project-subtitle {
+    text-align: center;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-secondary);
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+
+/* --- Секции страницы проекта --- */
+.project-page-section {
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.project-page-section h2 {
+    text-align: left;
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    padding-bottom: calc(var(--spacing-unit) * 0.5);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+
+.project-page-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.project-page-section ul li {
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+.project-page-section ul a {
+    font-weight: 500;
+}
+.project-page-section ul a:hover {
+    text-decoration: underline;
+}
+.project-page-section ul i.ph {
+    margin-right: calc(var(--spacing-unit) * 0.7);
+    font-size: 1.1em;
+    color: var(--secondary-color);
+    vertical-align: middle;
+}
+
+/* --- Списки Особенностей и Технологий --- */
+.feature-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: calc(var(--spacing-unit) * 1.5);
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: calc(var(--spacing-unit) * 1);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.feature-list li i.ph {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-right: calc(var(--spacing-unit) * 1);
+    flex-shrink: 0;
+    width: 1.8em;
+    text-align: center;
+    line-height: 1;
+}
+
+.tech-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: calc(var(--spacing-unit) * 1.5);
+}
+.tech-list > li {
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    display: flex;
+    align-items: flex-start;
+}
+.tech-list > li > i.ph {
+    color: var(--primary-color);
+    font-size: 1.6em;
+    margin-right: calc(var(--spacing-unit) * 1);
+    margin-top: 0.1em;
+    flex-shrink: 0;
+}
+.tech-list strong {
+    display: block;
+    font-size: 1.15rem;
+    margin-bottom: calc(var(--spacing-unit) * 0.7);
+}
+.tech-list ul {
+    list-style: disc;
+    padding-left: calc(var(--spacing-unit) * 1.5);
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.tech-list ul li {
+    margin-bottom: calc(var(--spacing-unit) * 0.4);
+    font-size: 1rem;
+    display: list-item;
+    align-items: initial;
+}
+.tech-list ul li i.ph {
+    display: none;
+}
+
+/* --- Галерея Скриншотов (Горизонтальный скролл) --- */
+.screenshot-gallery {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--spacing-unit);
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: var(--spacing-unit);
+    margin-top: calc(var(--spacing-unit) * 1.5);
+    align-items: center;
+}
+
+.screenshot-gallery img {
+    display: block;
+    height: 200px; /* Или другая высота */
+    width: auto;
+    max-width: none;
+    cursor: pointer; /* Для лайтбокса */
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 2px 5px var(--shadow-color-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+/* Класс для JS лайтбокса */
+.screenshot-gallery img.gallery-image {
+    cursor: pointer;
+}
+
+
+.screenshot-gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px var(--shadow-color-heavy);
+}
+
+/* --- Шапка и Подвал на странице проекта --- */
+.project-header .container {
+    display: flex;
+    align-items: center;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) * 0.5);
+    font-weight: 500;
+    color: var(--secondary-color);
+    transition: color var(--transition-speed) ease;
+}
+
+.back-link:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.back-link i {
+    font-size: 1.2em;
+    transition: transform var(--transition-speed) ease;
+}
+.back-link:hover i {
+    transform: translateX(-3px);
+}
+
+.project-footer {
+    margin-top: calc(var(--spacing-unit) * 4);
+    padding-top: var(--spacing-unit);
+    padding-bottom: var(--spacing-unit);
+}
+.project-footer p {
+    margin: 0;
+}
+
+/* --- Переключатель языков на странице проекта --- */
+.language-switcher {
+    font-size: 0.9rem;
+    margin-left: auto;
+    padding-left: calc(var(--spacing-unit) * 1.5);
+    flex-shrink: 0;
+    display: flex;
+    gap: calc(var(--spacing-unit) * 0.3);
+    align-items: center;
+}
+
+.language-switcher button.lang-button {
+    background: none;
+    border: none;
+    padding: 0 5px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--secondary-color);
+    transition: color var(--transition-speed) ease;
+}
+.language-switcher button.lang-button:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+.language-switcher button.lang-button:disabled {
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: default;
+}
+.language-switcher span {
+    display: none;
+}
+.command-list {
+    margin-top: calc(var(--spacing-unit) * 1.5);
+    font-size: 1.05rem; /* Чуть больше основного */
+}
+
+.command-list dt {
+    font-family: var(--font-secondary); /* Моноширинный шрифт для команд */
+    font-weight: bold;
+    color: var(--primary-color); /* Цвет команды */
+    margin-top: calc(var(--spacing-unit) * 1.2); /* Отступ перед командой */
+    margin-bottom: calc(var(--spacing-unit) * 0.3); /* Отступ после команды */
+}
+.command-list dt code { /* Стиль для тега code внутри dt */
+    background-color: var(--card-bg-color); /* Легкий фон */
+    padding: 0.1em 0.4em;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color);
+    font-size: 0.95em; /* Чуть меньше */
+}
+
+.command-list dd {
+    margin-left: calc(var(--spacing-unit) * 1.5); /* Отступ для описания */
+    margin-bottom: var(--spacing-unit); /* Отступ после описания */
+    padding-left: calc(var(--spacing-unit) * 1); /* Внутренний отступ слева */
+    border-left: 3px solid var(--border-color); /* Левая граница для выделения */
+    color: var(--secondary-color); /* Другой цвет для описания */
+    font-size: 1rem; /* Стандартный размер */
+    line-height: 1.6;
+}
+
+/* Убираем верхний отступ у самого первого dt */
+.command-list dt:first-of-type {
+    margin-top: 0;
+}

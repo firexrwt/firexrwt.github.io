@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-translate="projectStreamifyTitle">Проект Streamify | Портфолио Степана</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="project-style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+</head>
+<body>
+
+<header class="site-header project-header">
+  <div class="container">
+    <a href="/" class="back-link" id="back-link">
+      <i class="ph ph-arrow-left"></i> <span data-translate="projectBackLink">Назад к портфолио</span>
+    </a>
+    <div class="language-switcher">
+      <button onclick="setLanguage('ru')" class="lang-button" data-lang="ru">RU</button> |
+      <button onclick="setLanguage('en')" class="lang-button" data-lang="en">EN</button> |
+      <button onclick="setLanguage('de')" class="lang-button" data-lang="de">DE</button>
+    </div>
+  </div>
+</header>
+
+<main class="container project-page-container">
+
+  <h1 class="animate-on-scroll fade-in">Streamify</h1>
+  <p class="project-subtitle animate-on-scroll fade-in" data-translate="projectStreamifySubtitle" style="text-align: center; margin-top: -1rem; margin-bottom: 2rem; font-family: var(--font-secondary); color: var(--secondary-color);">Музыкальный виджет для стримеров</p>
+
+  <section class="project-page-section description-section animate-on-scroll fade-in-up">
+    <h2 data-translate="projectDescriptionHeading">Описание</h2>
+    <p data-translate="projectDescStreamifyP1">Streamify — это красивый музыкальный виджет для стримеров, который показывает зрителям какая музыка сейчас играет. Работает как Browser Source в OBS Studio и автоматически подстраивается под любое разрешение экрана.</p>
+    <p data-translate="projectDescStreamifyP2">Виджет предназначен для стримеров, которые хотят предоставить зрителям информацию о воспроизводимой музыке, создать более интерактивный и профессиональный стрим.</p>
+    <p data-translate="projectDescStreamifyP3">В будущем планируется добавить полную интеграцию с Twitch для заказа треков за Channel Points.</p>
+  </section>
+
+  <section class="project-page-section features-section animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
+    <h2 data-translate="projectFeaturesStreamifyHeading">Текущие возможности</h2>
+    <ul class="feature-list">
+      <li><i class="ph ph-resize"></i> <span data-translate="featureStreamify1">Автоматическое масштабирование под любое разрешение (1080p, 1440p, 4K)</span></li>
+      <li><i class="ph ph-layout"></i> <span data-translate="featureStreamify2">3 позиции размещения: по центру, слева, справа</span></li>
+      <li><i class="ph ph-palette"></i> <span data-translate="featureStreamify3">Динамический фон меняется под цвета обложки альбома</span></li>
+      <li><i class="ph ph-music-note"></i> <span data-translate="featureStreamify4">Отображение текущего трека в реальном времени</span></li>
+      <li><i class="ph ph-progress"></i> <span data-translate="featureStreamify5">Прогресс воспроизведения с анимированным прогресс-баром</span></li>
+      <li><i class="ph ph-qr-code"></i> <span data-translate="featureStreamify6">QR-код для быстрого перехода к треку на телефоне</span></li>
+      <li><i class="ph ph-shuffle"></i> <span data-translate="featureStreamify7">3 типа переходов: Vinyl Slide, Flip, Dissolve</span></li>
+      <li><i class="ph ph-equalizer"></i> <span data-translate="featureStreamify8">Аудио-визуализатор (эквалайзер)</span></li>
+      <li><i class="ph ph-gear"></i> <span data-translate="featureStreamify9">Web-интерфейс для конфигурации</span></li>
+    </ul>
+  </section>
+
+  <section class="project-page-section features-section animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+    <h2 data-translate="projectPlannedStreamifyHeading">Планируемые функции</h2>
+    <ul class="feature-list">
+      <li><i class="ph ph-play"></i> <span data-translate="plannedStreamify1">Воспроизведение музыки прямо в браузере (Spotify + YouTube)</span></li>
+      <li><i class="ph ph-twitch-logo"></i> <span data-translate="plannedStreamify2">Заказ треков за Channel Points зрителями</span></li>
+      <li><i class="ph ph-queue"></i> <span data-translate="plannedStreamify3">Автоматическая очередь заказанных треков</span></li>
+      <li><i class="ph ph-minus"></i> <span data-translate="plannedStreamify4">Мини-режим: компактный виджет 400×200px</span></li>
+      <li><i class="ph ph-shield"></i> <span data-translate="plannedStreamify5">Фильтры треков: блокировка explicit контента</span></li>
+      <li><i class="ph ph-coin"></i> <span data-translate="plannedStreamify6">Интеграция с донатами (возможность заказа за деньги)</span></li>
+    </ul>
+  </section>
+
+  <section class="project-page-section technologies-section animate-on-scroll fade-in-up" style="animation-delay: 0.3s;">
+    <h2 data-translate="projectTechStreamifyHeading">Технический стек</h2>
+    <ul class="tech-list">
+      <li><i class="ph ph-code"></i> <strong data-translate="projectTechStreamifyFrontend">Frontend:</strong> <ul><li>React 19</li><li>TypeScript</li><li>Framer Motion</li><li>Styled Components</li><li>Vite</li></ul></li>
+      <li><i class="ph ph-server"></i> <strong data-translate="projectTechStreamifyBackend">Backend:</strong> <ul><li>Node.js</li><li>Express.js</li><li>TypeScript</li></ul></li>
+      <li><i class="ph ph-plug"></i> <strong data-translate="projectTechStreamifyAPI">API Интеграции:</strong> <ul><li>Spotify Web API</li><li>Spotify Web Playbook SDK (планируется)</li><li>YouTube Data API (планируется)</li><li>Twitch API + EventSub (планируется)</li></ul></li>
+      <li><i class="ph ph-wrench"></i> <strong data-translate="projectTechStreamifyLibs">Дополнительные библиотеки:</strong><ul><li>ColorThief</li><li>QRCode</li><li>React Router</li></ul></li>
+    </ul>
+  </section>
+
+  <section class="project-page-section features-section animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
+    <h2 data-translate="projectUseCasesStreamifyHeading">Варианты использования</h2>
+    <ul class="feature-list">
+      <li><i class="ph ph-monitor"></i> <span data-translate="useCaseStreamify1">Полноэкранный режим: для специальных музыкальных блоков</span></li>
+      <li><i class="ph ph-picture-in-picture"></i> <span data-translate="useCaseStreamify2">Мини-режим: постоянное отображение во время игры (планируется)</span></li>
+      <li><i class="ph ph-hand-waving"></i> <span data-translate="useCaseStreamify3">Интерактивный режим: музыкальные стримы с заказами зрителей (планируется)</span></li>
+    </ul>
+  </section>
+
+  <section class="project-page-section links-section animate-on-scroll fade-in-up" style="animation-delay: 0.5s;">
+    <h2 data-translate="projectLinksHeading">Ссылки</h2>
+    <ul>
+      <li><i class="ph ph-github-logo"></i> <a href="https://github.com/firexrwt/Streamify" target="_blank" rel="noopener noreferrer" data-translate="projectLinksStreamifyRepo">Репозиторий на GitHub</a></li>
+    </ul>
+    <p data-translate="projectLinksStreamifyStatus">Релизная версия скоро будет доступна!</p>
+  </section>
+
+</main>
+
+<footer class="site-footer project-footer">
+  <div class="container">
+    <p>&copy; <span id="current-year">2025</span> <span data-translate="footerText">Степан. <a href="/" data-translate="projectFooterLink">Вернуться на главную</a></span></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
