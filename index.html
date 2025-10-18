@@ -54,17 +54,17 @@
                 </div>
                 <div class="terminal-body">
                     <div class="terminal-line">
-                        <span class="prompt">$</span> 
-                        <span class="command">whoami</span>
+                        <span class="prompt">$</span>
+                        <span class="command decrypted-text" data-animate-on="view">whoami</span>
                     </div>
-                    <div class="terminal-line output" data-translate="heroIntro">Привет, я Степан 👋</div>
+                    <div class="terminal-line output shiny-text" data-translate="heroIntro">Привет, я Степан 👋</div>
                     <div class="terminal-line">
-                        <span class="prompt">$</span> 
-                        <span class="command">cat role.txt</span>
+                        <span class="prompt">$</span>
+                        <span class="command decrypted-text" data-animate-on="view">cat role.txt</span>
                     </div>
                     <div class="terminal-line output" data-translate="heroTitle">Энтузиаст Технологий и Разработчик</div>
                     <div class="terminal-line">
-                        <span class="prompt">$</span> 
+                        <span class="prompt">$</span>
                         <span class="command">echo "I create "</span><span class="typed-text" id="typed-text"></span>
                         <span class="typed-cursor">█</span>
                     </div>
@@ -84,14 +84,18 @@
     <section id="about" class="about-section content-section">
         <div class="container grid-layout">
             <div class="about-text animate-on-scroll fade-in-left">
-                <h2 data-translate="aboutHeading">Кто я такой?</h2>
+                <h2>
+                    <span class="animated-gradient-text">
+                        <span class="gradient-text-content" data-translate="aboutHeading">Кто я такой?</span>
+                    </span>
+                </h2>
                 <p data-translate="aboutP1">Здравствуйте! Меня зовут Степан, я разработчик, живущий в Вене. Меня вдохновляет возможность использовать технологии для решения реальных задач и создания чего-то нового и полезного.</p>
                 <p data-translate="aboutP2">Мой путь в мир кода начался с изучения фундаментальных основ программирования на Python в Яндекс.Лицее. Позже я получил ценный практический опыт в создании мобильных приложений, обучаясь в IT Школе Самсунг. Этот разносторонний опыт заложил прочную основу и научил меня подходить к задачам с разных сторон.</p>
                 <p data-translate="aboutP3">Мне нравится применять полученные знания на практике, что привело к созданию таких проектов, как <a href="/neurabox/">NeuraBox</a> (инструмент для работы с локальными ИИ), <a href="/firex-bot/">FIREX BOT</a> (многофункциональный open-source Discord бот) и <a href="/my-time/">My Time</a> (мобильное приложение для тайм-менеджмента).</p>
                 <p data-translate="aboutP4">Хотя мой основной опыт лежит в областях, связанных с Python и мобильной разработкой, я активно интересуюсь и осваиваю новые технологии, включая инструменты веб-разработки, которые помогают мне оживлять и представлять мои проекты (как, например, этот сайт!).</p>
             </div>
             <div class="skills-list animate-on-scroll fade-in-right">
-                <h3 data-translate="skillsHeading">Технические навыки:</h3>
+                <h3 class="shiny-text" data-translate="skillsHeading">Технические навыки:</h3>
                 
                 <div class="skill-category">
                     <h4><i class="ph-bold ph-code"></i> <span data-translate="skillCategoryLang">Языки программирования</span></h4>
@@ -153,10 +157,14 @@
     <section id="projects" class="projects-section content-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="animate-on-scroll fade-in glitch-text" data-translate="projectsHeading">Мои Работы</h2>
+                <h2 class="animate-on-scroll fade-in">
+                    <span class="animated-gradient-text">
+                        <span class="gradient-text-content" data-translate="projectsHeading">Мои Работы</span>
+                    </span>
+                </h2>
                 <div class="section-subtitle animate-on-scroll fade-in">
                     <span class="code-bracket">[</span>
-                    <span class="tech-highlight">projects.filter(p => p.featured)</span>
+                    <span class="tech-highlight shiny-text">projects.filter(p => p.featured)</span>
                     <span class="code-bracket">]</span>
                 </div>
             </div>
@@ -173,7 +181,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">George-Droid</h3>
+                        <h3 class="project-title decrypted-text" data-animate-on="hover" data-speed="30">George-Droid</h3>
                         <p class="project-desc" data-translate="projectGeorgeDroidDesc">ИИ-компаньон для стримов, вдохновлённый Neuro-Sama.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
@@ -201,7 +209,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">NeuraBox</h3>
+                        <h3 class="project-title decrypted-text" data-animate-on="hover" data-speed="30">NeuraBox</h3>
                         <p class="project-desc" data-translate="projectNeuraBoxDesc">Программа для запуска локальных нейросетей с широким функционалом.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
@@ -229,7 +237,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">FIREX BOT</h3>
+                        <h3 class="project-title decrypted-text" data-animate-on="hover" data-speed="30">FIREX BOT</h3>
                         <p class="project-desc" data-translate="projectFirexBotDesc">Open-source Discord бот (уведомления, модерация, уровни, мини-игры).</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
@@ -257,7 +265,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Streamify</h3>
+                        <h3 class="project-title decrypted-text" data-animate-on="hover" data-speed="30">Streamify</h3>
                         <p class="project-desc" data-translate="projectStreamifyDesc">Интерактивный музыкальный виджет для стримеров с интеграцией Spotify</p>
                         <div class="project-tech">
                             <span class="tech-tag">React 19</span>
@@ -285,7 +293,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">My Time</h3>
+                        <h3 class="project-title decrypted-text" data-animate-on="hover" data-speed="30">My Time</h3>
                         <p class="project-desc" data-translate="projectMyTimeDesc">Приложение для тайм-менеджмента для индивидуальных предпринимателей.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Android</span>
@@ -306,7 +314,11 @@
 
     <section id="contact" class="contact-section content-section">
         <div class="container animate-on-scroll fade-in">
-            <h2 data-translate="contactHeading">Давайте работать вместе!</h2>
+            <h2>
+                <span class="animated-gradient-text">
+                    <span class="gradient-text-content" data-translate="contactHeading">Давайте работать вместе!</span>
+                </span>
+            </h2>
             <p data-translate="contactP1">Открыт для новых проектов и интересных предложений. Напишите мне!</p>
             <div class="contact-links">
                 <a href="mailto:firexfirexov@gmail.com" class="contact-link-button">

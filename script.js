@@ -1,350 +1,460 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
+  // --- Базовые элементы и переменные ---
+  const currentYearSpan = document.getElementById("current-year");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mainNav = document.querySelector(".main-nav");
+  const langButtons = document.querySelectorAll(".lang-button"); // Кнопки языков
 
-    // --- Базовые элементы и переменные ---
-    const currentYearSpan = document.getElementById('current-year');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
-    const langButtons = document.querySelectorAll('.lang-button'); // Кнопки языков
+  let currentLanguage = "ru"; // Язык по умолчанию
+  let translations = {}; // Здесь будут храниться загруженные переводы
 
-    let currentLanguage = 'ru'; // Язык по умолчанию
-    let translations = {}; // Здесь будут храниться загруженные переводы
+  // Элементы для печатающегося текста
+  const typedTextSpan = document.getElementById("typed-text");
+  const cursorSpan = document.querySelector(".typed-cursor");
+  let textArray = []; // Теперь массив будет загружаться из JSON
+  let typingBaseText = ""; // Базовая часть фразы
+  const typingDelay = 80;
+  const erasingDelay = 40;
+  const newTextDelay = 1500;
+  let textArrayIndex = 0;
+  let charIndex = 0;
+  let typeTimeout, eraseTimeout; // Для остановки анимации при смене языка
 
-    // Элементы для печатающегося текста
-    const typedTextSpan = document.getElementById('typed-text');
-    const cursorSpan = document.querySelector('.typed-cursor');
-    let textArray = []; // Теперь массив будет загружаться из JSON
-    let typingBaseText = ""; // Базовая часть фразы
-    const typingDelay = 80;
-    const erasingDelay = 40;
-    const newTextDelay = 1500;
-    let textArrayIndex = 0;
-    let charIndex = 0;
-    let typeTimeout, eraseTimeout; // Для остановки анимации при смене языка
-
-    // --- Обновление года в футере ---
-    function updateYear() {
-        if (currentYearSpan) {
-            currentYearSpan.textContent = new Date().getFullYear();
-        }
+  // --- Обновление года в футере ---
+  function updateYear() {
+    if (currentYearSpan) {
+      currentYearSpan.textContent = new Date().getFullYear();
     }
+  }
 
-    // --- Мобильное меню ---
-    function setupMobileMenu() {
-        if (menuToggle && mainNav) {
-            menuToggle.addEventListener('click', () => {
-                mainNav.classList.toggle('active');
-                const icon = menuToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.toggle('ph-list');
-                    icon.classList.toggle('ph-x');
-                }
+  // --- Мобильное меню ---
+  function setupMobileMenu() {
+    if (menuToggle && mainNav) {
+      menuToggle.addEventListener("click", () => {
+        mainNav.classList.toggle("active");
+        const icon = menuToggle.querySelector("i");
+        if (icon) {
+          icon.classList.toggle("ph-list");
+          icon.classList.toggle("ph-x");
+        }
+      });
+
+      mainNav.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", () => {
+          // Плавно скроллим к секции
+          const targetId = link.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            // Учитываем высоту шапки при скролле
+            const headerOffset =
+              document.querySelector(".site-header")?.offsetHeight || 0;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset - 10; // -10px для небольшого отступа
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
             });
+          }
 
-            mainNav.querySelectorAll('a[href^="#"]').forEach(link => {
-                link.addEventListener('click', () => {
-                    // Плавно скроллим к секции
-                    const targetId = link.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        // Учитываем высоту шапки при скролле
-                        const headerOffset = document.querySelector('.site-header')?.offsetHeight || 0;
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 10; // -10px для небольшого отступа
-
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: "smooth"
-                        });
-                    }
-
-                    // Закрываем меню
-                    if (mainNav.classList.contains('active')) {
-                        mainNav.classList.remove('active');
-                        const icon = menuToggle.querySelector('i');
-                        if (icon) {
-                            icon.classList.remove('ph-x');
-                            icon.classList.add('ph-list');
-                        }
-                    }
-                });
-            });
-        }
-    }
-
-    // --- Локализация ---
-
-    // Функция загрузки JSON файла переводов
-    async function loadTranslations(lang) {
-        try {
-            // Добавляем случайный параметр к URL, чтобы обойти кэш при разработке
-            // Для продакшена можно убрать "?v=..." или использовать версионирование
-            const response = await fetch(`locales/${lang}.json?v=${Date.now()}`);
-            if (!response.ok) {
-                // Если файл не найден, пытаемся загрузить русский
-                if (lang !== 'ru') {
-                    console.warn(`Translation file not found for ${lang}. Falling back to 'ru'.`);
-                    await loadTranslations('ru');
-                    return; // Выходим, так как русский уже загружен (или будет ошибка)
-                } else {
-                    throw new Error(`HTTP error! status: ${response.status}. Could not load default language 'ru'.`);
-                }
+          // Закрываем меню
+          if (mainNav.classList.contains("active")) {
+            mainNav.classList.remove("active");
+            const icon = menuToggle.querySelector("i");
+            if (icon) {
+              icon.classList.remove("ph-x");
+              icon.classList.add("ph-list");
             }
-            translations = await response.json();
-            console.log(`Translations loaded for ${lang}.`);
-        } catch (error) {
-            console.error(`Could not load translations for ${lang}:`, error);
-            translations = {}; // Очищаем переводы в случае ошибки
-        }
-    }
-
-    // Функция применения переводов к элементам страницы
-    function applyTranslations() {
-        if (!translations || Object.keys(translations).length === 0) {
-            console.error("Translations not available or empty.");
-            return; // Нечего применять
-        }
-
-        // Перевод обычных текстовых элементов
-        document.querySelectorAll('[data-translate]').forEach(element => {
-            const key = element.dataset.translate;
-            if (translations[key] !== undefined) {
-                // ВАЖНО: Используем innerHTML ТОЛЬКО для ключей, где ТОЧНО нужен HTML (ссылки, иконки)
-                if (key === 'footerText' || key === 'aboutP3') { // Ключи, где может быть HTML
-                    element.innerHTML = translations[key];
-                } else {
-                    element.textContent = translations[key]; // Безопаснее для простого текста
-                }
-            } else {
-                console.warn(`Translation key not found: ${key}`);
-            }
+          }
         });
+      });
+    }
+  }
 
-        // Перевод атрибутов aria-label
-        document.querySelectorAll('[data-translate-aria]').forEach(element => {
-            const key = element.dataset.translateAria;
-            if (translations[key] !== undefined) {
-                element.setAttribute('aria-label', translations[key]);
-            } else {
-                console.warn(`Translation key (aria) not found: ${key}`);
-            }
-        });
+  // --- Локализация ---
 
-        // Перевод базовой части подзаголовка (перед печатающимся текстом)
-        document.querySelectorAll('[data-translate-base]').forEach(element => {
-            const key = element.dataset.translateBase;
-            if (translations[key] !== undefined) {
-                // Находим дочерний span#typed-text и cursor и сохраняем их
-                const typedSpan = element.querySelector('#typed-text');
-                const cursorSpanElem = element.querySelector('.typed-cursor');
-                // Устанавливаем базовый текст, сохраняя дочерние элементы
-                element.textContent = translations[key]; // Устанавливаем базовый текст
-                if (typedSpan) element.appendChild(typedSpan); // Возвращаем span для печати
-                if (cursorSpanElem) element.appendChild(cursorSpanElem); // Возвращаем курсор
-            } else {
-                console.warn(`Translation key (base) not found: ${key}`);
-            }
-        });
-
-        // Перевод Title страницы
-        if (translations.pageTitle) {
-            document.title = translations.pageTitle;
+  // Функция загрузки JSON файла переводов
+  async function loadTranslations(lang) {
+    try {
+      // Добавляем случайный параметр к URL, чтобы обойти кэш при разработке
+      // Для продакшена можно убрать "?v=..." или использовать версионирование
+      const response = await fetch(`locales/${lang}.json?v=${Date.now()}`);
+      if (!response.ok) {
+        // Если файл не найден, пытаемся загрузить русский
+        if (lang !== "ru") {
+          console.warn(
+            `Translation file not found for ${lang}. Falling back to 'ru'.`,
+          );
+          await loadTranslations("ru");
+          return; // Выходим, так как русский уже загружен (или будет ошибка)
         } else {
-            console.warn(`Translation key not found: pageTitle`);
+          throw new Error(
+            `HTTP error! status: ${response.status}. Could not load default language 'ru'.`,
+          );
         }
+      }
+      translations = await response.json();
+      console.log(`Translations loaded for ${lang}.`);
+    } catch (error) {
+      console.error(`Could not load translations for ${lang}:`, error);
+      translations = {}; // Очищаем переводы в случае ошибки
+    }
+  }
 
-        // Обновление базового текста и массива для печатающегося эффекта
-        if (typedTextSpan && cursorSpan) {
-            typingBaseText = translations.heroSubtitleBase || "";
-            textArray = [
-                translations.heroTyped1 || "",
-                translations.heroTyped2 || "",
-                translations.heroTyped3 || "",
-                translations.heroTyped4 || "",
-                translations.heroTyped5 || ""
-            ].filter(Boolean); // Убираем пустые строки
+  // Функция применения переводов к элементам страницы
+  function applyTranslations() {
+    if (!translations || Object.keys(translations).length === 0) {
+      console.error("Translations not available or empty.");
+      return; // Нечего применять
+    }
 
-            // Перезапуск анимации печати
-            resetAndStartTyping();
+    // Перевод обычных текстовых элементов
+    document.querySelectorAll("[data-translate]").forEach((element) => {
+      const key = element.dataset.translate;
+      if (translations[key] !== undefined) {
+        // ВАЖНО: Используем innerHTML ТОЛЬКО для ключей, где ТОЧНО нужен HTML (ссылки, иконки)
+        if (key === "footerText" || key === "aboutP3") {
+          // Ключи, где может быть HTML
+          element.innerHTML = translations[key];
         } else {
-            console.warn("Typing elements not found for translation update.");
+          element.textContent = translations[key]; // Безопаснее для простого текста
         }
+      } else {
+        console.warn(`Translation key not found: ${key}`);
+      }
+    });
 
-        // Обновление UI переключателя языков
-        updateLangSwitcherUI();
-    }
+    // Перевод атрибутов aria-label
+    document.querySelectorAll("[data-translate-aria]").forEach((element) => {
+      const key = element.dataset.translateAria;
+      if (translations[key] !== undefined) {
+        element.setAttribute("aria-label", translations[key]);
+      } else {
+        console.warn(`Translation key (aria) not found: ${key}`);
+      }
+    });
 
-    // Обновление активной кнопки языка
-    function updateLangSwitcherUI() {
-        langButtons.forEach(button => {
-            if (button.dataset.lang === currentLanguage) {
-                button.disabled = true;
-                button.style.fontWeight = 'bold';
-            } else {
-                button.disabled = false;
-                button.style.fontWeight = 'normal';
-            }
-            // Переводим текст кнопок (RU, EN, DE)
-            const langKey = `lang${button.dataset.lang.toUpperCase()}`;
-            if(translations && translations[langKey]){
-                button.textContent = translations[langKey];
-            }
-        });
-    }
+    // Перевод базовой части подзаголовка (перед печатающимся текстом)
+    document.querySelectorAll("[data-translate-base]").forEach((element) => {
+      const key = element.dataset.translateBase;
+      if (translations[key] !== undefined) {
+        // Находим дочерний span#typed-text и cursor и сохраняем их
+        const typedSpan = element.querySelector("#typed-text");
+        const cursorSpanElem = element.querySelector(".typed-cursor");
+        // Устанавливаем базовый текст, сохраняя дочерние элементы
+        element.textContent = translations[key]; // Устанавливаем базовый текст
+        if (typedSpan) element.appendChild(typedSpan); // Возвращаем span для печати
+        if (cursorSpanElem) element.appendChild(cursorSpanElem); // Возвращаем курсор
+      } else {
+        console.warn(`Translation key (base) not found: ${key}`);
+      }
+    });
 
-    // Функция смены языка
-    async function setLanguage(lang) {
-        if (!['ru', 'en', 'de'].includes(lang)) {
-            console.warn(`Unsupported language: ${lang}. Defaulting to 'ru'.`);
-            lang = 'ru';
-        }
-
-        if (lang === currentLanguage && Object.keys(translations).length > 0) {
-            console.log(`Language ${lang} already set.`);
-            return;
-        }
-
-        console.log(`Setting language to: ${lang}`);
-        currentLanguage = lang;
-        localStorage.setItem('preferredLanguage', lang);
-        document.documentElement.lang = lang; // Меняем атрибут lang у <html>
-        await loadTranslations(lang);
-        applyTranslations();
-    }
-
-    // --- Печатающийся текст (модифицированный) ---
-    let typeInterval, eraseInterval; // Используем интервалы для более надежной очистки
-
-    function type() {
-        clearTimeout(typeTimeout);
-        clearInterval(typeInterval); // Очищаем интервал печати
-        if (!textArray || textArray.length === 0 || !typedTextSpan) return;
-
-        let currentPhrase = textArray[textArrayIndex];
-        if (charIndex < currentPhrase.length) {
-            if (cursorSpan && !cursorSpan.classList.contains('typing')) cursorSpan.classList.add('typing');
-            typedTextSpan.textContent += currentPhrase.charAt(charIndex);
-            charIndex++;
-            typeInterval = setTimeout(type, typingDelay); // Рекурсивный вызов
-        } else {
-            if (cursorSpan) cursorSpan.classList.remove('typing');
-            eraseInterval = setTimeout(erase, newTextDelay); // Запускаем стирание
-        }
-    }
-
-    function erase() {
-        clearTimeout(eraseTimeout);
-        clearInterval(eraseInterval); // Очищаем интервал стирания
-        if (!textArray || textArray.length === 0 || !typedTextSpan) return;
-
-        if (charIndex > 0) {
-            if (cursorSpan && !cursorSpan.classList.contains('typing')) cursorSpan.classList.add('typing');
-            let currentPhrase = textArray[textArrayIndex];
-            typedTextSpan.textContent = currentPhrase.substring(0, charIndex - 1); // Стираем последний символ
-            charIndex--;
-            eraseInterval = setTimeout(erase, erasingDelay); // Рекурсивный вызов
-        } else {
-            if (cursorSpan) cursorSpan.classList.remove('typing');
-            textArrayIndex++;
-            if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-            // Новая фраза начнется в следующем вызове type
-            typeInterval = setTimeout(type, typingDelay + 1100);
-        }
-    }
-
-    // Функция для сброса и перезапуска анимации печати
-    function resetAndStartTyping() {
-        clearTimeout(typeTimeout);
-        clearTimeout(eraseTimeout);
-        clearInterval(typeInterval);
-        clearInterval(eraseInterval);
-        textArrayIndex = 0;
-        charIndex = 0;
-        if (typedTextSpan) {
-            typedTextSpan.textContent = ""; // Начинаем с пустого для печати
-        }
-        if (typedTextSpan && cursorSpan && textArray.length > 0) {
-            typeInterval = setTimeout(type, newTextDelay / 2);
-        }
-    }
-
-
-    // --- Анимация при прокрутке (без изменений) ---
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        animatedElements.forEach(el => observer.observe(el));
+    // Перевод Title страницы
+    if (translations.pageTitle) {
+      document.title = translations.pageTitle;
     } else {
-        animatedElements.forEach(el => el.classList.add('is-visible'));
+      console.warn(`Translation key not found: pageTitle`);
     }
 
-    // --- Интерактивные эффекты для карточек ---
-    function setupCardEffects() {
-        const cards = document.querySelectorAll('.cyber-card');
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = ((e.clientX - rect.left) / rect.width) * 100;
-                const y = ((e.clientY - rect.top) / rect.height) * 100;
-                card.style.setProperty('--mouse-x', `${x}%`);
-                card.style.setProperty('--mouse-y', `${y}%`);
+    // Обновление базового текста и массива для печатающегося эффекта
+    if (typedTextSpan && cursorSpan) {
+      typingBaseText = translations.heroSubtitleBase || "";
+      textArray = [
+        translations.heroTyped1 || "",
+        translations.heroTyped2 || "",
+        translations.heroTyped3 || "",
+        translations.heroTyped4 || "",
+        translations.heroTyped5 || "",
+      ].filter(Boolean); // Убираем пустые строки
+
+      // Перезапуск анимации печати
+      resetAndStartTyping();
+    } else {
+      console.warn("Typing elements not found for translation update.");
+    }
+
+    // Обновление UI переключателя языков
+    updateLangSwitcherUI();
+  }
+
+  // Обновление активной кнопки языка
+  function updateLangSwitcherUI() {
+    langButtons.forEach((button) => {
+      if (button.dataset.lang === currentLanguage) {
+        button.disabled = true;
+        button.style.fontWeight = "bold";
+      } else {
+        button.disabled = false;
+        button.style.fontWeight = "normal";
+      }
+      // Переводим текст кнопок (RU, EN, DE)
+      const langKey = `lang${button.dataset.lang.toUpperCase()}`;
+      if (translations && translations[langKey]) {
+        button.textContent = translations[langKey];
+      }
+    });
+  }
+
+  // Функция смены языка
+  async function setLanguage(lang) {
+    if (!["ru", "en", "de"].includes(lang)) {
+      console.warn(`Unsupported language: ${lang}. Defaulting to 'ru'.`);
+      lang = "ru";
+    }
+
+    if (lang === currentLanguage && Object.keys(translations).length > 0) {
+      console.log(`Language ${lang} already set.`);
+      return;
+    }
+
+    console.log(`Setting language to: ${lang}`);
+    currentLanguage = lang;
+    localStorage.setItem("preferredLanguage", lang);
+    document.documentElement.lang = lang; // Меняем атрибут lang у <html>
+    await loadTranslations(lang);
+    applyTranslations();
+  }
+
+  // --- Печатающийся текст (модифицированный) ---
+  let typeInterval, eraseInterval; // Используем интервалы для более надежной очистки
+
+  function type() {
+    clearTimeout(typeTimeout);
+    clearInterval(typeInterval); // Очищаем интервал печати
+    if (!textArray || textArray.length === 0 || !typedTextSpan) return;
+
+    let currentPhrase = textArray[textArrayIndex];
+    if (charIndex < currentPhrase.length) {
+      if (cursorSpan && !cursorSpan.classList.contains("typing"))
+        cursorSpan.classList.add("typing");
+      typedTextSpan.textContent += currentPhrase.charAt(charIndex);
+      charIndex++;
+      typeInterval = setTimeout(type, typingDelay); // Рекурсивный вызов
+    } else {
+      if (cursorSpan) cursorSpan.classList.remove("typing");
+      eraseInterval = setTimeout(erase, newTextDelay); // Запускаем стирание
+    }
+  }
+
+  function erase() {
+    clearTimeout(eraseTimeout);
+    clearInterval(eraseInterval); // Очищаем интервал стирания
+    if (!textArray || textArray.length === 0 || !typedTextSpan) return;
+
+    if (charIndex > 0) {
+      if (cursorSpan && !cursorSpan.classList.contains("typing"))
+        cursorSpan.classList.add("typing");
+      let currentPhrase = textArray[textArrayIndex];
+      typedTextSpan.textContent = currentPhrase.substring(0, charIndex - 1); // Стираем последний символ
+      charIndex--;
+      eraseInterval = setTimeout(erase, erasingDelay); // Рекурсивный вызов
+    } else {
+      if (cursorSpan) cursorSpan.classList.remove("typing");
+      textArrayIndex++;
+      if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+      // Новая фраза начнется в следующем вызове type
+      typeInterval = setTimeout(type, typingDelay + 1100);
+    }
+  }
+
+  // Функция для сброса и перезапуска анимации печати
+  function resetAndStartTyping() {
+    clearTimeout(typeTimeout);
+    clearTimeout(eraseTimeout);
+    clearInterval(typeInterval);
+    clearInterval(eraseInterval);
+    textArrayIndex = 0;
+    charIndex = 0;
+    if (typedTextSpan) {
+      typedTextSpan.textContent = ""; // Начинаем с пустого для печати
+    }
+    if (typedTextSpan && cursorSpan && textArray.length > 0) {
+      typeInterval = setTimeout(type, newTextDelay / 2);
+    }
+  }
+
+  // --- Анимация при прокрутке (без изменений) ---
+  const animatedElements = document.querySelectorAll(".animate-on-scroll");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+    animatedElements.forEach((el) => observer.observe(el));
+  } else {
+    animatedElements.forEach((el) => el.classList.add("is-visible"));
+  }
+
+  // --- Интерактивные эффекты для карточек ---
+  function setupCardEffects() {
+    const cards = document.querySelectorAll(".cyber-card");
+    cards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty("--mouse-x", `${x}%`);
+        card.style.setProperty("--mouse-y", `${y}%`);
+      });
+    });
+  }
+
+  // --- Particle animation ---
+  function createFloatingParticles() {
+    const particlesContainer = document.querySelector(".floating-particles");
+    if (!particlesContainer) return;
+
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement("div");
+      particle.style.position = "absolute";
+      particle.style.width = "2px";
+      particle.style.height = "2px";
+      particle.style.background = "rgba(0, 255, 255, 0.5)";
+      particle.style.borderRadius = "50%";
+      particle.style.left = Math.random() * 100 + "%";
+      particle.style.top = Math.random() * 100 + "%";
+      particle.style.animation = `particleMove ${Math.random() * 20 + 10}s linear infinite`;
+      particle.style.animationDelay = Math.random() * 5 + "s";
+      particlesContainer.appendChild(particle);
+    }
+  }
+
+  // --- Terminal typing effect improvements ---
+  function enhanceTerminalEffect() {
+    const terminalLines = document.querySelectorAll(".terminal-line");
+    terminalLines.forEach((line, index) => {
+      line.style.animationDelay = `${index * 0.3}s`;
+      line.classList.add("animate-fade-in");
+    });
+  }
+
+  // --- Decrypted Text Effect ---
+  function initDecryptedText() {
+    const decryptedElements = document.querySelectorAll(".decrypted-text");
+
+    decryptedElements.forEach((element) => {
+      const text = element.textContent;
+      const speed = parseInt(element.dataset.speed) || 50;
+      const maxIterations = parseInt(element.dataset.iterations) || 10;
+      const characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+0123456789";
+
+      // Обернуть каждый символ в span
+      element.innerHTML = "";
+      const chars = text.split("").map((char, index) => {
+        const span = document.createElement("span");
+        span.className = "decrypted-text-char encrypted";
+        span.textContent = char;
+        element.appendChild(span);
+        return { span, char, index };
+      });
+
+      let isHovering = false;
+      let animationTimeout = null;
+
+      const shuffleText = () => {
+        if (!isHovering) return;
+
+        let iteration = 0;
+        const interval = setInterval(() => {
+          chars.forEach(({ span, char, index }) => {
+            if (iteration > index) {
+              span.textContent = char;
+              span.classList.remove("encrypted");
+              span.classList.add("decrypted");
+            } else {
+              if (char !== " ") {
+                span.textContent =
+                  characters[Math.floor(Math.random() * characters.length)];
+                span.classList.add("encrypted");
+                span.classList.remove("decrypted");
+              }
+            }
+          });
+
+          iteration++;
+
+          if (iteration > chars.length + maxIterations) {
+            clearInterval(interval);
+          }
+        }, speed);
+
+        animationTimeout = interval;
+      };
+
+      // Проверяем, нужно ли автоматически запускать анимацию при появлении в viewport
+      const animateOn = element.dataset.animateOn || "hover";
+
+      if (animateOn === "view" || animateOn === "both") {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                isHovering = true;
+                shuffleText();
+                observer.unobserve(element);
+              }
             });
+          },
+          { threshold: 0.1 },
+        );
+
+        observer.observe(element);
+      }
+
+      if (animateOn === "hover" || animateOn === "both") {
+        element.addEventListener("mouseenter", () => {
+          isHovering = true;
+          shuffleText();
         });
-    }
 
-    // --- Particle animation ---
-    function createFloatingParticles() {
-        const particlesContainer = document.querySelector('.floating-particles');
-        if (!particlesContainer) return;
-
-        for (let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.style.position = 'absolute';
-            particle.style.width = '2px';
-            particle.style.height = '2px';
-            particle.style.background = 'rgba(0, 255, 255, 0.5)';
-            particle.style.borderRadius = '50%';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.animation = `particleMove ${Math.random() * 20 + 10}s linear infinite`;
-            particle.style.animationDelay = Math.random() * 5 + 's';
-            particlesContainer.appendChild(particle);
-        }
-    }
-
-    // --- Terminal typing effect improvements ---
-    function enhanceTerminalEffect() {
-        const terminalLines = document.querySelectorAll('.terminal-line');
-        terminalLines.forEach((line, index) => {
-            line.style.animationDelay = `${index * 0.3}s`;
-            line.classList.add('animate-fade-in');
+        element.addEventListener("mouseleave", () => {
+          isHovering = false;
+          if (animationTimeout) {
+            clearInterval(animationTimeout);
+          }
+          // Восстанавливаем оригинальный текст
+          chars.forEach(({ span, char }) => {
+            span.textContent = char;
+            span.classList.remove("encrypted");
+            span.classList.add("decrypted");
+          });
         });
-    }
+      }
+    });
+  }
 
-    // --- Инициализация при загрузке страницы ---
-    updateYear();
-    setupMobileMenu();
-    setupCardEffects();
-    createFloatingParticles();
-    enhanceTerminalEffect();
+  // --- Инициализация при загрузке страницы ---
+  updateYear();
+  setupMobileMenu();
+  setupCardEffects();
+  createFloatingParticles();
+  enhanceTerminalEffect();
+  initDecryptedText();
 
-    // Определяем начальный язык
-    const savedLang = localStorage.getItem('preferredLanguage');
-    // Определяем язык браузера (берем только первые две буквы, например, 'ru' из 'ru-RU')
-    const browserLang = navigator.language ? navigator.language.split('-')[0].toLowerCase() : 'ru';
-    // Выбираем язык: сохраненный ИЛИ язык браузера (если он поддерживается) ИЛИ русский по умолчанию
-    const initialLang = savedLang || (['ru', 'en', 'de'].includes(browserLang) ? browserLang : 'ru');
+  // Определяем начальный язык
+  const savedLang = localStorage.getItem("preferredLanguage");
+  // Определяем язык браузера (берем только первые две буквы, например, 'ru' из 'ru-RU')
+  const browserLang = navigator.language
+    ? navigator.language.split("-")[0].toLowerCase()
+    : "ru";
+  // Выбираем язык: сохраненный ИЛИ язык браузера (если он поддерживается) ИЛИ русский по умолчанию
+  const initialLang =
+    savedLang ||
+    (["ru", "en", "de"].includes(browserLang) ? browserLang : "ru");
 
-    // Устанавливаем язык при первой загрузке
-    setLanguage(initialLang);
+  // Устанавливаем язык при первой загрузке
+  setLanguage(initialLang);
 
-    // Делаем функцию setLanguage глобальной, чтобы ее можно было вызвать из onclick кнопок
-    window.setLanguage = setLanguage;
-
+  // Делаем функцию setLanguage глобальной, чтобы ее можно было вызвать из onclick кнопок
+  window.setLanguage = setLanguage;
 }); // Конец DOMContentLoaded

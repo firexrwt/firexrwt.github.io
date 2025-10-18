@@ -1535,9 +1535,105 @@ a:hover {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-    
+
     .floating-particles,
     .grid-bg {
         animation: none;
     }
+}
+
+/* ===============================
+   TEXT EFFECTS FROM REACT-BITS
+   =============================== */
+
+/* Shiny Text Effect */
+.shiny-text {
+    color: var(--text-primary);
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(0, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 0) 60%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    display: inline-block;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 100%;
+    }
+    100% {
+        background-position: -100%;
+    }
+}
+
+.shiny-text.disabled {
+    animation: none;
+}
+
+/* Gradient Text Effect */
+.animated-gradient-text {
+    position: relative;
+    margin: 0 auto;
+    display: inline-flex;
+    max-width: fit-content;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.animated-gradient-text .gradient-text-content {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(
+        to right,
+        var(--neon-cyan),
+        var(--neon-pink),
+        var(--neon-cyan),
+        var(--neon-pink),
+        var(--neon-cyan)
+    );
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientShift 8s linear infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Decrypted Text Effect - используется с JS */
+.decrypted-text {
+    display: inline-block;
+    white-space: pre-wrap;
+}
+
+.decrypted-text-char {
+    display: inline-block;
+}
+
+.decrypted-text-char.encrypted {
+    color: var(--neon-pink);
+    text-shadow: var(--glow-pink);
+}
+
+.decrypted-text-char.decrypted {
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
 }
