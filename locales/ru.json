@@ -187,5 +187,21 @@
   "useCaseStreamify2": "Мини-режим: постоянное отображение во время игры (планируется)",
   "useCaseStreamify3": "Интерактивный режим: музыкальные стримы с заказами зрителей (планируется)",
   "projectLinksStreamifyRepo": "Репозиторий на GitHub",
-  "projectLinksStreamifyStatus": "Релизная версия скоро будет доступна!"
+  "projectLinksStreamifyStatus": "Релизная версия скоро будет доступна!",
+
+  "projectChatGameDesc": "Игра для Twitch чата — захват территории, отображается как оверлей в OBS.",
+  "projectDescChatGameP1": "CHAT_GAME — мультиплеерная игра для захвата территории в реальном времени для Twitch стримов. Зрители вводят команды в чате, чтобы вступить в игру, расширять территорию, атаковать врагов и прокачивать клетки — всё это отображается в виде WebGL оверлея через OBS Browser Source.",
+  "projectDescChatGameP2": "Построено на Unity 2D URP с интеграцией Twitch IRC. Рассчитано на работу 24/7 через Docker и nginx.",
+  "projectFeaturesChatGameHeading": "Возможности",
+  "featureChatGame1": "Сетка 30×30 с владением территорией и цветами игроков",
+  "featureChatGame2": "Система команд Twitch IRC (!join, !expand, !attack, !upgrade)",
+  "featureChatGame3": "Назначение цветов по HSV — у каждого игрока уникальный цвет",
+  "featureChatGame4": "WebGL билд как оверлей в OBS Browser Source",
+  "featureChatGame5": "Перемещение камеры и зум",
+
+  "projectGitplexDesc": "Терминальный Git клиент с богатым TUI на Python.",
+  "projectDescGitplexP1": "gitplex — терминальный Git клиент на Python и Textual. Предоставляет визуальный, управляемый клавиатурой интерфейс для типичных Git операций — без выхода из терминала.",
+
+  "projectMacroEditorDesc": "Лёгкий терминальный редактор кода на Rust.",
+  "projectDescMacroEditorP1": "macro-editor — лёгкий TUI редактор кода на Rust. Создан для скорости и минимализма: работает полностью в терминале с подсветкой синтаксиса и навигацией с клавиатуры."
 }

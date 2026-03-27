@@ -187,5 +187,21 @@
   "useCaseStreamify2": "Mini mode: permanent display during gameplay (planned)",
   "useCaseStreamify3": "Interactive mode: music streams with viewer requests (planned)",
   "projectLinksStreamifyRepo": "Repository on GitHub",
-  "projectLinksStreamifyStatus": "Release version coming soon!"
+  "projectLinksStreamifyStatus": "Release version coming soon!",
+
+  "projectChatGameDesc": "Twitch chat territory conquest game rendered as an OBS overlay.",
+  "projectDescChatGameP1": "CHAT_GAME is a real-time multiplayer territory game for Twitch streams. Viewers type commands in chat to join, expand their territory, attack enemies, and upgrade their cells — all rendered live as a WebGL overlay in OBS Browser Source.",
+  "projectDescChatGameP2": "Built with Unity 2D URP and Twitch IRC integration, the game is designed to run 24/7 via Docker and nginx.",
+  "projectFeaturesChatGameHeading": "Features",
+  "featureChatGame1": "30×30 grid with territory ownership and colors",
+  "featureChatGame2": "Twitch IRC command system (!join, !expand, !attack, !upgrade)",
+  "featureChatGame3": "HSV color assignment — every player gets a unique color",
+  "featureChatGame4": "WebGL build as OBS Browser Source overlay",
+  "featureChatGame5": "Camera drag & zoom controls",
+
+  "projectGitplexDesc": "Terminal Git client with a rich TUI built in Python.",
+  "projectDescGitplexP1": "gitplex is a terminal-based Git client built with Python and Textual. It provides a visual, keyboard-driven interface for common Git operations — without leaving the terminal.",
+
+  "projectMacroEditorDesc": "Lightweight terminal code editor written in Rust.",
+  "projectDescMacroEditorP1": "macro-editor is a lightweight TUI code editor written in Rust. Designed for speed and minimalism, it runs entirely in the terminal with syntax highlighting and keyboard-centric navigation."
 }
